@@ -1,0 +1,5 @@
+tests\CreateAccountUsers.class
+tests\TC01_RegisterUser.class
+tests\LoginUsers.class
+tests\HelperClass.class
+tests\TC02_ValidLogin.class

@@ -1,0 +1,21 @@
+[
+{
+    "SignUpName": "amoor",
+    "SignUpEmail": "amor2@example.com",
+    "name": "Neha Reddy",
+    "password": "amortarek2",
+    "day": "14",
+    "month": "6",
+    "year": "1993",
+    "firstName": "Neha",
+    "lastName": "Reddy",
+    "company": "InnoWave India",
+    "address1": "8 Banjara Hills",
+    "address2": "Tower 2",
+    "country": "India",
+    "state": "Telangana",
+    "city": "Hyderabad",
+    "zipcode": "500034",
+    "mobileNumber": "+919812345675"
+  }
+]

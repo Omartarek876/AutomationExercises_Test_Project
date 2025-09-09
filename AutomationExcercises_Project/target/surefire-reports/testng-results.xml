@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-09-09T09:00:52 EEST" name="AutomationExerciseTestSuite" finished-at="2025-09-09T09:01:30 EEST" duration-ms="37725">
+    <groups>
+    </groups>
+    <test started-at="2025-09-09T09:00:52 EEST" name="RegisterUserTest" finished-at="2025-09-09T09:01:30 EEST" duration-ms="37725">
+      <class name="tests.TC02_ValidLogin">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:tests.TC02_ValidLogin@15043a2f]" started-at="2025-09-09T09:01:15 EEST" name="setUpClass" finished-at="2025-09-09T09:01:16 EEST" duration-ms="775" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method is-config="true" signature="setUpMethod()[pri:0, instance:tests.TC02_ValidLogin@15043a2f]" started-at="2025-09-09T09:01:16 EEST" name="setUpMethod" finished-at="2025-09-09T09:01:16 EEST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpMethod -->
+        <test-method signature="TC02_ValidLogin(tests.LoginUsers)[pri:0, instance:tests.TC02_ValidLogin@15043a2f]" started-at="2025-09-09T09:01:16 EEST" name="TC02_ValidLogin" data-provider="validLoginData" finished-at="2025-09-09T09:01:29 EEST" duration-ms="13548" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[tests.LoginUsers@151db587]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC02_ValidLogin -->
+        <test-method is-config="true" signature="tearDownMethod()[pri:0, instance:tests.TC02_ValidLogin@15043a2f]" started-at="2025-09-09T09:01:29 EEST" name="tearDownMethod" finished-at="2025-09-09T09:01:29 EEST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownMethod -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:tests.TC02_ValidLogin@15043a2f]" started-at="2025-09-09T09:01:29 EEST" name="tearDownClass" finished-at="2025-09-09T09:01:30 EEST" duration-ms="325" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- tests.TC02_ValidLogin -->
+      <class name="tests.TC01_RegisterUser">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:tests.TC01_RegisterUser@350aac89]" started-at="2025-09-09T09:00:52 EEST" name="setUpClass" finished-at="2025-09-09T09:00:56 EEST" duration-ms="3717" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method is-config="true" signature="setUpMethod()[pri:0, instance:tests.TC01_RegisterUser@350aac89]" started-at="2025-09-09T09:00:56 EEST" name="setUpMethod" finished-at="2025-09-09T09:00:56 EEST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpMethod -->
+        <test-method signature="TC01_Register_User(tests.CreateAccountUsers)[pri:0, instance:tests.TC01_RegisterUser@350aac89]" started-at="2025-09-09T09:00:56 EEST" name="TC01_Register_User" data-provider="usersData" finished-at="2025-09-09T09:01:15 EEST" duration-ms="18872" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[tests.CreateAccountUsers@27f0ad19]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC01_Register_User -->
+        <test-method is-config="true" signature="tearDownMethod()[pri:0, instance:tests.TC01_RegisterUser@350aac89]" started-at="2025-09-09T09:01:15 EEST" name="tearDownMethod" finished-at="2025-09-09T09:01:15 EEST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownMethod -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:tests.TC01_RegisterUser@350aac89]" started-at="2025-09-09T09:01:15 EEST" name="tearDownClass" finished-at="2025-09-09T09:01:15 EEST" duration-ms="341" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- tests.TC01_RegisterUser -->
+    </test> <!-- RegisterUserTest -->
+  </suite> <!-- AutomationExerciseTestSuite -->
+</testng-results>
