@@ -1,5 +1,13 @@
+tests\TC04_LogoutUser.class
 tests\CreateAccountUsers.class
-tests\TC01_RegisterUser.class
-tests\LoginUsers.class
+tests\TC07_TestcasesPageNavigation.class
 tests\HelperClass.class
 tests\TC02_ValidLogin.class
+tests\TC05_RegisterUserWithExistingEmail.class
+tests\TC01_RegisterUser.class
+tests\TC03_InvalidLogin.class
+tests\LoginUsers.class
+tests\TC08_VerifiyAllProductsAndProductPage.class
+tests\TC06_ContactUsForm.class
+tests\ContactUsUsers.class
+tests\TC09_SearchProduct.class

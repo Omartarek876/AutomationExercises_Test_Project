@@ -1,69 +1,251 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="9" passed="9" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-09T09:00:52 EEST" name="AutomationExerciseTestSuite" finished-at="2025-09-09T09:01:30 EEST" duration-ms="37725">
+  <suite started-at="2025-09-13T02:16:14 EEST" name="AutomationExerciseTestSuite" finished-at="2025-09-13T02:27:14 EEST" duration-ms="660129">
     <groups>
     </groups>
-    <test started-at="2025-09-09T09:00:52 EEST" name="RegisterUserTest" finished-at="2025-09-09T09:01:30 EEST" duration-ms="37725">
-      <class name="tests.TC02_ValidLogin">
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:tests.TC02_ValidLogin@15043a2f]" started-at="2025-09-09T09:01:15 EEST" name="setUpClass" finished-at="2025-09-09T09:01:16 EEST" duration-ms="775" status="PASS">
+    <test started-at="2025-09-13T02:16:14 EEST" name="automationTests" finished-at="2025-09-13T02:27:14 EEST" duration-ms="660129">
+      <class name="tests.TC05_RegisterUserWithExistingEmail">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:tests.TC05_RegisterUserWithExistingEmail@6fa51cd4]" started-at="2025-09-13T02:21:38 EEST" name="setUpClass" finished-at="2025-09-13T02:21:39 EEST" duration-ms="785" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method is-config="true" signature="setUpMethod()[pri:0, instance:tests.TC02_ValidLogin@15043a2f]" started-at="2025-09-09T09:01:16 EEST" name="setUpMethod" finished-at="2025-09-09T09:01:16 EEST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="setUpMethod()[pri:0, instance:tests.TC05_RegisterUserWithExistingEmail@6fa51cd4]" started-at="2025-09-13T02:21:39 EEST" name="setUpMethod" finished-at="2025-09-13T02:21:39 EEST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpMethod -->
-        <test-method signature="TC02_ValidLogin(tests.LoginUsers)[pri:0, instance:tests.TC02_ValidLogin@15043a2f]" started-at="2025-09-09T09:01:16 EEST" name="TC02_ValidLogin" data-provider="validLoginData" finished-at="2025-09-09T09:01:29 EEST" duration-ms="13548" status="PASS">
+        <test-method signature="TC05_RegisterUserWithExistingEmail(tests.LoginUsers)[pri:0, instance:tests.TC05_RegisterUserWithExistingEmail@6fa51cd4]" started-at="2025-09-13T02:21:39 EEST" name="TC05_RegisterUserWithExistingEmail" data-provider="InvalidLoginData" finished-at="2025-09-13T02:22:01 EEST" duration-ms="21934" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[tests.LoginUsers@151db587]]>
+                <![CDATA[tests.LoginUsers@59696551]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC05_RegisterUserWithExistingEmail -->
+        <test-method is-config="true" signature="tearDownMethod()[pri:0, instance:tests.TC05_RegisterUserWithExistingEmail@6fa51cd4]" started-at="2025-09-13T02:22:01 EEST" name="tearDownMethod" finished-at="2025-09-13T02:22:01 EEST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownMethod -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:tests.TC05_RegisterUserWithExistingEmail@6fa51cd4]" started-at="2025-09-13T02:22:01 EEST" name="tearDownClass" finished-at="2025-09-13T02:22:01 EEST" duration-ms="289" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- tests.TC05_RegisterUserWithExistingEmail -->
+      <class name="tests.TC02_ValidLogin">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:tests.TC02_ValidLogin@4681c175]" started-at="2025-09-13T02:18:46 EEST" name="setUpClass" finished-at="2025-09-13T02:19:01 EEST" duration-ms="15109" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method is-config="true" signature="setUpMethod()[pri:0, instance:tests.TC02_ValidLogin@4681c175]" started-at="2025-09-13T02:19:01 EEST" name="setUpMethod" finished-at="2025-09-13T02:19:01 EEST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpMethod -->
+        <test-method signature="TC02_ValidLogin(tests.LoginUsers)[pri:0, instance:tests.TC02_ValidLogin@4681c175]" started-at="2025-09-13T02:19:01 EEST" name="TC02_ValidLogin" data-provider="validLoginData" finished-at="2025-09-13T02:20:00 EEST" duration-ms="59020" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[tests.LoginUsers@62566842]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC02_ValidLogin -->
-        <test-method is-config="true" signature="tearDownMethod()[pri:0, instance:tests.TC02_ValidLogin@15043a2f]" started-at="2025-09-09T09:01:29 EEST" name="tearDownMethod" finished-at="2025-09-09T09:01:29 EEST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="tearDownMethod()[pri:0, instance:tests.TC02_ValidLogin@4681c175]" started-at="2025-09-13T02:20:00 EEST" name="tearDownMethod" finished-at="2025-09-13T02:20:00 EEST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownMethod -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:tests.TC02_ValidLogin@15043a2f]" started-at="2025-09-09T09:01:29 EEST" name="tearDownClass" finished-at="2025-09-09T09:01:30 EEST" duration-ms="325" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:tests.TC02_ValidLogin@4681c175]" started-at="2025-09-13T02:20:00 EEST" name="tearDownClass" finished-at="2025-09-13T02:20:01 EEST" duration-ms="306" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
       </class> <!-- tests.TC02_ValidLogin -->
-      <class name="tests.TC01_RegisterUser">
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:tests.TC01_RegisterUser@350aac89]" started-at="2025-09-09T09:00:52 EEST" name="setUpClass" finished-at="2025-09-09T09:00:56 EEST" duration-ms="3717" status="PASS">
+      <class name="tests.TC06_ContactUsForm">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:tests.TC06_ContactUsForm@2767e23c]" started-at="2025-09-13T02:22:01 EEST" name="setUpClass" finished-at="2025-09-13T02:22:02 EEST" duration-ms="1008" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method is-config="true" signature="setUpMethod()[pri:0, instance:tests.TC01_RegisterUser@350aac89]" started-at="2025-09-09T09:00:56 EEST" name="setUpMethod" finished-at="2025-09-09T09:00:56 EEST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="setUpMethod()[pri:0, instance:tests.TC06_ContactUsForm@2767e23c]" started-at="2025-09-13T02:22:02 EEST" name="setUpMethod" finished-at="2025-09-13T02:22:02 EEST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpMethod -->
-        <test-method signature="TC01_Register_User(tests.CreateAccountUsers)[pri:0, instance:tests.TC01_RegisterUser@350aac89]" started-at="2025-09-09T09:00:56 EEST" name="TC01_Register_User" data-provider="usersData" finished-at="2025-09-09T09:01:15 EEST" duration-ms="18872" status="PASS">
+        <test-method signature="TC06_ContactUsForm(tests.ContactUsUsers)[pri:0, instance:tests.TC06_ContactUsForm@2767e23c]" started-at="2025-09-13T02:22:02 EEST" name="TC06_ContactUsForm" data-provider="contactUsData" finished-at="2025-09-13T02:22:51 EEST" duration-ms="48716" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[tests.CreateAccountUsers@27f0ad19]]>
+                <![CDATA[tests.ContactUsUsers@4fd05028]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC06_ContactUsForm -->
+        <test-method is-config="true" signature="tearDownMethod()[pri:0, instance:tests.TC06_ContactUsForm@2767e23c]" started-at="2025-09-13T02:22:51 EEST" name="tearDownMethod" finished-at="2025-09-13T02:22:51 EEST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownMethod -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:tests.TC06_ContactUsForm@2767e23c]" started-at="2025-09-13T02:22:51 EEST" name="tearDownClass" finished-at="2025-09-13T02:22:51 EEST" duration-ms="300" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- tests.TC06_ContactUsForm -->
+      <class name="tests.TC07_TestcasesPageNavigation">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:tests.TC07_TestcasesPageNavigation@710c2b53]" started-at="2025-09-13T02:22:51 EEST" name="setUpClass" finished-at="2025-09-13T02:22:52 EEST" duration-ms="831" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method is-config="true" signature="setUpMethod()[pri:0, instance:tests.TC07_TestcasesPageNavigation@710c2b53]" started-at="2025-09-13T02:22:52 EEST" name="setUpMethod" finished-at="2025-09-13T02:22:52 EEST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpMethod -->
+        <test-method signature="TC07_TestcasesPageNavigation()[pri:0, instance:tests.TC07_TestcasesPageNavigation@710c2b53]" started-at="2025-09-13T02:22:52 EEST" name="TC07_TestcasesPageNavigation" finished-at="2025-09-13T02:23:33 EEST" duration-ms="41551" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC07_TestcasesPageNavigation -->
+        <test-method is-config="true" signature="tearDownMethod()[pri:0, instance:tests.TC07_TestcasesPageNavigation@710c2b53]" started-at="2025-09-13T02:23:33 EEST" name="tearDownMethod" finished-at="2025-09-13T02:23:33 EEST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownMethod -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:tests.TC07_TestcasesPageNavigation@710c2b53]" started-at="2025-09-13T02:23:33 EEST" name="tearDownClass" finished-at="2025-09-13T02:23:34 EEST" duration-ms="292" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- tests.TC07_TestcasesPageNavigation -->
+      <class name="tests.TC01_RegisterUser">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:tests.TC01_RegisterUser@33bc72d1]" started-at="2025-09-13T02:16:14 EEST" name="setUpClass" finished-at="2025-09-13T02:16:15 EEST" duration-ms="1564" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method is-config="true" signature="setUpMethod()[pri:0, instance:tests.TC01_RegisterUser@33bc72d1]" started-at="2025-09-13T02:16:15 EEST" name="setUpMethod" finished-at="2025-09-13T02:16:15 EEST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpMethod -->
+        <test-method signature="TC01_Register_User(tests.CreateAccountUsers)[pri:0, instance:tests.TC01_RegisterUser@33bc72d1]" started-at="2025-09-13T02:16:15 EEST" name="TC01_Register_User" data-provider="usersData" finished-at="2025-09-13T02:18:46 EEST" duration-ms="150424" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[tests.CreateAccountUsers@26f3d90c]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC01_Register_User -->
-        <test-method is-config="true" signature="tearDownMethod()[pri:0, instance:tests.TC01_RegisterUser@350aac89]" started-at="2025-09-09T09:01:15 EEST" name="tearDownMethod" finished-at="2025-09-09T09:01:15 EEST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="tearDownMethod()[pri:0, instance:tests.TC01_RegisterUser@33bc72d1]" started-at="2025-09-13T02:18:46 EEST" name="tearDownMethod" finished-at="2025-09-13T02:18:46 EEST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownMethod -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:tests.TC01_RegisterUser@350aac89]" started-at="2025-09-09T09:01:15 EEST" name="tearDownClass" finished-at="2025-09-09T09:01:15 EEST" duration-ms="341" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:tests.TC01_RegisterUser@33bc72d1]" started-at="2025-09-13T02:18:46 EEST" name="tearDownClass" finished-at="2025-09-13T02:18:46 EEST" duration-ms="585" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
       </class> <!-- tests.TC01_RegisterUser -->
-    </test> <!-- RegisterUserTest -->
+      <class name="tests.TC03_InvalidLogin">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:tests.TC03_InvalidLogin@57a78e3]" started-at="2025-09-13T02:20:01 EEST" name="setUpClass" finished-at="2025-09-13T02:20:02 EEST" duration-ms="883" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method is-config="true" signature="setUpMethod()[pri:0, instance:tests.TC03_InvalidLogin@57a78e3]" started-at="2025-09-13T02:20:02 EEST" name="setUpMethod" finished-at="2025-09-13T02:20:02 EEST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpMethod -->
+        <test-method signature="TC02_ValidLogin(tests.LoginUsers)[pri:0, instance:tests.TC03_InvalidLogin@57a78e3]" started-at="2025-09-13T02:20:02 EEST" name="TC02_ValidLogin" data-provider="InvalidLoginData" finished-at="2025-09-13T02:20:25 EEST" duration-ms="23813" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[tests.LoginUsers@ad9e63e]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC02_ValidLogin -->
+        <test-method is-config="true" signature="tearDownMethod()[pri:0, instance:tests.TC03_InvalidLogin@57a78e3]" started-at="2025-09-13T02:20:25 EEST" name="tearDownMethod" finished-at="2025-09-13T02:20:25 EEST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownMethod -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:tests.TC03_InvalidLogin@57a78e3]" started-at="2025-09-13T02:20:25 EEST" name="tearDownClass" finished-at="2025-09-13T02:20:26 EEST" duration-ms="314" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- tests.TC03_InvalidLogin -->
+      <class name="tests.TC08_VerifiyAllProductsAndProductPage">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:tests.TC08_VerifiyAllProductsAndProductPage@5386659f]" started-at="2025-09-13T02:23:34 EEST" name="setUpClass" finished-at="2025-09-13T02:23:35 EEST" duration-ms="834" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method is-config="true" signature="setUpMethod()[pri:0, instance:tests.TC08_VerifiyAllProductsAndProductPage@5386659f]" started-at="2025-09-13T02:23:35 EEST" name="setUpMethod" finished-at="2025-09-13T02:23:35 EEST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpMethod -->
+        <test-method signature="TC08_VerifiyAllProductsAndProductPage()[pri:0, instance:tests.TC08_VerifiyAllProductsAndProductPage@5386659f]" started-at="2025-09-13T02:23:35 EEST" name="TC08_VerifiyAllProductsAndProductPage" finished-at="2025-09-13T02:25:48 EEST" duration-ms="133143" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC08_VerifiyAllProductsAndProductPage -->
+        <test-method is-config="true" signature="tearDownMethod()[pri:0, instance:tests.TC08_VerifiyAllProductsAndProductPage@5386659f]" started-at="2025-09-13T02:25:48 EEST" name="tearDownMethod" finished-at="2025-09-13T02:25:48 EEST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownMethod -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:tests.TC08_VerifiyAllProductsAndProductPage@5386659f]" started-at="2025-09-13T02:25:48 EEST" name="tearDownClass" finished-at="2025-09-13T02:25:48 EEST" duration-ms="392" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- tests.TC08_VerifiyAllProductsAndProductPage -->
+      <class name="tests.TC09_SearchProduct">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:tests.TC09_SearchProduct@14028087]" started-at="2025-09-13T02:25:48 EEST" name="setUpClass" finished-at="2025-09-13T02:25:49 EEST" duration-ms="883" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method is-config="true" signature="setUpMethod()[pri:0, instance:tests.TC09_SearchProduct@14028087]" started-at="2025-09-13T02:25:49 EEST" name="setUpMethod" finished-at="2025-09-13T02:25:49 EEST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpMethod -->
+        <test-method signature="TC09_SearchProduct()[pri:0, instance:tests.TC09_SearchProduct@14028087]" started-at="2025-09-13T02:25:49 EEST" name="TC09_SearchProduct" finished-at="2025-09-13T02:27:13 EEST" duration-ms="84347" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC09_SearchProduct -->
+        <test-method is-config="true" signature="tearDownMethod()[pri:0, instance:tests.TC09_SearchProduct@14028087]" started-at="2025-09-13T02:27:13 EEST" name="tearDownMethod" finished-at="2025-09-13T02:27:13 EEST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownMethod -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:tests.TC09_SearchProduct@14028087]" started-at="2025-09-13T02:27:13 EEST" name="tearDownClass" finished-at="2025-09-13T02:27:14 EEST" duration-ms="290" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- tests.TC09_SearchProduct -->
+      <class name="tests.TC04_LogoutUser">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:tests.TC04_LogoutUser@402c4085]" started-at="2025-09-13T02:20:26 EEST" name="setUpClass" finished-at="2025-09-13T02:20:26 EEST" duration-ms="729" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method is-config="true" signature="setUpMethod()[pri:0, instance:tests.TC04_LogoutUser@402c4085]" started-at="2025-09-13T02:20:26 EEST" name="setUpMethod" finished-at="2025-09-13T02:20:26 EEST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpMethod -->
+        <test-method signature="TC02_ValidLogin(tests.LoginUsers)[pri:0, instance:tests.TC04_LogoutUser@402c4085]" started-at="2025-09-13T02:20:26 EEST" name="TC02_ValidLogin" data-provider="validLoginData" finished-at="2025-09-13T02:21:38 EEST" duration-ms="71149" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[tests.LoginUsers@212dfd39]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC02_ValidLogin -->
+        <test-method is-config="true" signature="tearDownMethod()[pri:0, instance:tests.TC04_LogoutUser@402c4085]" started-at="2025-09-13T02:21:38 EEST" name="tearDownMethod" finished-at="2025-09-13T02:21:38 EEST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownMethod -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:tests.TC04_LogoutUser@402c4085]" started-at="2025-09-13T02:21:38 EEST" name="tearDownClass" finished-at="2025-09-13T02:21:38 EEST" duration-ms="457" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- tests.TC04_LogoutUser -->
+    </test> <!-- automationTests -->
   </suite> <!-- AutomationExerciseTestSuite -->
 </testng-results>

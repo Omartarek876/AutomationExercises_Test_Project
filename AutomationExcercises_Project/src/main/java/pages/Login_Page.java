@@ -25,8 +25,8 @@ public class Login_Page {
     private By newUserSignupHeaderLocator = By.xpath("//h2[contains(text(),'New User Signup!')]"); // New User Signup header
     private By errorMessageLocator = By.xpath("//p[contains(text(),'Your email or password is incorrect!')]"); // Login error message
     private By forgotPasswordLinkLocator = By.xpath("//a[contains(text(),'Forgot Password?')]"); // Forgot Password link
-
-
+    private By InvalidLoginErrorMsgLocator = By.xpath("//*[@id=\"form\"]/div/div/div[1]/div/form/p");
+    
 
     
     public void enterEmail(String email)
@@ -57,7 +57,14 @@ public class Login_Page {
 
     public String LoginHeader() {
          return ElementUtils.getText(loginHeaderLocator);
+    } 
+    
+    public String InvalidLoginErrorMsg ()
+    {
+        return ElementUtils.getText(InvalidLoginErrorMsgLocator);
     }
+    
+
 
 
 }

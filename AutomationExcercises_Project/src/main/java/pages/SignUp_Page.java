@@ -44,6 +44,7 @@ public class SignUp_Page {
     private By zipcodeInputLocator = By.id("zipcode");
     private By mobileNumberInputLocator = By.id("mobile_number");
     private By createAccountButtonLocator = By.xpath("//button[contains(text(),'Create Account')]");
+    private By SignUpWithExistingEmailMsgLocator  = By.cssSelector("#form > div > div > div:nth-child(3) > div > form > p");
 
     
     public void SignUP_enterName(String name) {
@@ -57,6 +58,8 @@ public class SignUp_Page {
     public void clickSignupButton() {
         ElementUtils.click(signupButtonLocator);
     }
+    
+    
 
     public void signup(String name, String email) {
         SignUP_enterName(name);
@@ -64,11 +67,11 @@ public class SignUp_Page {
         clickSignupButton();
     }
 
+    // Check if "New User Signup!" header is visible 
     public String SignupHeader1() {
         return ElementUtils.getText(signupHeaderLocator);
     }  
-    
-    
+  
     // Check if "Enter Account Information" header is visible
     public String SignupHeader2() {
         return ElementUtils.getText(enterAccountInfoHeaderLocator); 
@@ -164,7 +167,6 @@ public class SignUp_Page {
             selectTitle(gender);
 
             // Fill credentials
-            enterName(name);
             enterPassword(password);
 
             // Date of Birth
@@ -189,7 +191,12 @@ public class SignUp_Page {
             // Submit form
             clickCreateAccount();
         }
-
+    
+    
+    public String SignUpWithExistingEmail ()
+    {
+        return ElementUtils.getText(SignUpWithExistingEmailMsgLocator);
+    }
 
     
 

@@ -1,0 +1,9 @@
+[
+  {
+    "ContactUsFormName": "Omar Tarek",
+    "ContactUsFormEmail": "omar.tarek@example.com",
+    "ContactUsFormSubject": "Inquiry about automation project",
+    "ContactUsFormMsg": "Hello, I would like to know more details about your automation testing features.",
+    "ContactUsFormFilePath": "D:\\courses\\01-Testing\\4-Automation_Testing\\Automation_Projects\\AutomationExercises_Test_Project\\AutomationExcercises_Project\\src\\test\\resources\\TestingData\\SampleImage.png"
+  }
+]

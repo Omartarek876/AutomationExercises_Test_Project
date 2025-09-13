@@ -47,7 +47,7 @@ public class ElementUtils {
      * @param locator The {@link By} locator of the element to click.
      */
     public static void click(By locator) {
-        WaitUtils.waitForClickability(locator, 5).click();
+        WaitUtils.waitForClickability(locator, 10).click();
     }
 
     /**

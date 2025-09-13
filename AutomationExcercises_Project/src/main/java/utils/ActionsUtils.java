@@ -111,4 +111,9 @@ public class ActionsUtils {
         Actions actions = new Actions(BaseDriver.getDriver());
         actions.release().perform();
     }
+    
+    public static void uploadFile(By Locator , String path)
+    {
+        ElementUtils.getElement(Locator).sendKeys(path);
+    }
 }

@@ -1,8 +1,9 @@
 /*
-    mvn clean test
-     mvn allure:report => for the first time 
-    allure open target/allure-report
+     mvn clean test
 
+     allure serve target/allure-results
+
+     mvn allure:report => for the first time 
 
     do not forget to add taking screenshots of any testcase failure
     */
@@ -41,6 +42,14 @@ class LoginUsers {
     public String LoginPassword;
 }
 
+class ContactUsUsers {
+    public String ContactUsFormName;
+    public String ContactUsFormEmail;
+    public String ContactUsFormSubject;
+    public String ContactUsFormMsg;
+    public String ContactUsFormFilePath;
+}
+
 
 
 public class HelperClass {
@@ -73,10 +82,23 @@ public class HelperClass {
      * @return
      * @throws FileNotFoundException
      */
-    public static LoginUsers[] ReadValidLoginUsers (String fileName) throws FileNotFoundException
+    public static LoginUsers[] ReadLoginUsers (String fileName) throws FileNotFoundException
     {
         FileReader reader = new FileReader(TestPrjRoot+TestDataFolder+fileName);
         LoginUsers[] ListOfCredentials = new Gson().fromJson(reader, LoginUsers[].class);
+        return ListOfCredentials;
+    }
+    
+            /**
+     *
+     * @param fileName
+     * @return
+     * @throws FileNotFoundException
+     */
+    public static ContactUsUsers[] ReadContactUsForms (String fileName) throws FileNotFoundException
+    {
+        FileReader reader = new FileReader(TestPrjRoot+TestDataFolder+fileName);
+        ContactUsUsers[] ListOfCredentials = new Gson().fromJson(reader, ContactUsUsers[].class);
         return ListOfCredentials;
     }
 }

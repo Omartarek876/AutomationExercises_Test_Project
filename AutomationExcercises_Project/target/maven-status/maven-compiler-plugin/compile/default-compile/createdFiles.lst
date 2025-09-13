@@ -1,4 +1,3 @@
-pages\ProductDetailed_Page.class
 utils\AlertUtils.class
 base\BaseDriver.class
 pages\Home_Page.class

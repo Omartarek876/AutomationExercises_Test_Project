@@ -27,6 +27,8 @@ public class Home_Page {
     private By contactUsLocator = By.xpath("//a[contains(text(),'Contact us')]");
     private By logoutLocator = By.xpath("//a[contains(text(),'Logout')]");
     private By homeLogoLocator = By.xpath("//a[@class='logo pull-left']");
+    private By testcasesLocator = By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[5]/a");
+    private By testcasesPageHeaderLocator = By.xpath("//*[@id=\"form\"]/div/div[2]/h5/span");
     private By HomePageHeaderLocator = By.xpath("//*[@id=\"slider-carousel\"]/div/div[1]/div[1]/h1");
     private By FeaturedListLocator = By.xpath("/html/body/section[2]/div/div/div[2]/div[1]/div[2]");
     private By featuredProductsLocator = By.cssSelector("div.features_items div.single-products");  
@@ -42,6 +44,8 @@ public class Home_Page {
     private By kidsTopsLocator  = By.xpath("//*[@id=\"Kids\"]/div/ul/li[2]/a");
     private By loggedAsLocator = By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[10]/a");
     private By DeleteAccountLocator = By.cssSelector("#header > div > div > div > div.col-sm-8 > div > ul > li:nth-child(5) > a");
+    private By LogoutLocator = By.cssSelector("#header > div > div > div > div.col-sm-8 > div > ul > li:nth-child(4) > a");
+    
     
     
     
@@ -105,12 +109,19 @@ public class Home_Page {
         ElementUtils.click(DeleteAccountLocator);
     }
     
+    public void LogOut()
+    {
+        ElementUtils.click(LogoutLocator);
+    }
     
+        
+    public void clickTestcases (){
+        ElementUtils.click(testcasesLocator);
+    }
     
+    public String testcasesPageHeader (){
+       return ElementUtils.getText(testcasesPageHeaderLocator);
+    }
     
-    
-    
-   
-
-    
+       
 }

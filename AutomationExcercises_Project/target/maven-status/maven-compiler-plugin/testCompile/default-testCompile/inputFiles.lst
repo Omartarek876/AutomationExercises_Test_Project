@@ -1,3 +1,10 @@
-D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExcercises_Project\src\test\java\tests\HelperClass.java
-D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExcercises_Project\src\test\java\tests\TC01_RegisterUser.java
-D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExcercises_Project\src\test\java\tests\TC02_ValidLogin.java
+D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\test\java\tests\HelperClass.java
+D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\test\java\tests\TC01_RegisterUser.java
+D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\test\java\tests\TC02_ValidLogin.java
+D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\test\java\tests\TC03_InvalidLogin.java
+D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\test\java\tests\TC04_LogoutUser.java
+D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\test\java\tests\TC05_RegisterUserWithExistingEmail.java
+D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\test\java\tests\TC06_ContactUsForm.java
+D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\test\java\tests\TC07_TestcasesPageNavigation.java
+D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\test\java\tests\TC08_VerifiyAllProductsAndProductPage.java
+D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\test\java\tests\TC09_SearchProduct.java
