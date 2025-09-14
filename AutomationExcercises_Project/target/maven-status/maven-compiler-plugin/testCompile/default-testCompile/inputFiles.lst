@@ -8,3 +8,11 @@ D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercis
 D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\test\java\tests\TC07_TestcasesPageNavigation.java
 D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\test\java\tests\TC08_VerifiyAllProductsAndProductPage.java
 D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\test\java\tests\TC09_SearchProduct.java
+D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\test\java\tests\TC10_SubscriptionInHomepage.java
+D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\test\java\tests\TC11_SubscriptionInCartpage.java
+D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\test\java\tests\TC12_AddProductsInCart.java
+D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\test\java\tests\TC13_ProductQuantityInCart.java
+D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\test\java\tests\TC14_RegisterWhileCheckout.java
+D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\test\java\tests\TC15_RigesterBeforeCheckout.java
+D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\test\java\tests\TC16_LoginBeforeCheckout.java
+D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\test\java\tests\TC17_RemoveProductsFromCart.java

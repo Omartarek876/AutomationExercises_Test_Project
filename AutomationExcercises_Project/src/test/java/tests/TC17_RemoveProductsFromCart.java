@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/EmptyTestNGTest.java to edit this template
- */
 package tests;
 
 import java.io.FileNotFoundException;
@@ -14,14 +10,16 @@ import utils.*;
  *
  * @author Omar Tarek
  */
-public class TC09_SearchProduct {
+public class TC17_RemoveProductsFromCart {
     
+       
     Home_Page Homepage;
-    Products_Page ProductsPage;
+    Products_Page productsPage;
+    Cart_Page CartPage;
 
     
     @Test
-    public void TC09_SearchProduct()
+    public void TC17_RemoveProductsFromCart()
     {   
         BrowserUtils.navigateToURL("https://automationexercise.com/");
         assertTrue(Homepage.homePageheader().contains("Automation")
@@ -29,36 +27,40 @@ public class TC09_SearchProduct {
         System.out.println("the home page is visible");
         
         Homepage.clickProducts();
-        assertEquals(BrowserUtils.GetCurrentLink() ,"https://automationexercise.com/products");
+        productsPage.hoverProductAndClick("1");
+        productsPage.clickCart();
+        String addedProduct = CartPage.getProductNameInCart("1");
         
-        ProductsPage.searchProduct("Men Tshirt");
-        System.out.println(ProductsPage.searchedProductsHeader());
-        assertTrue(ProductsPage.searchedProductsHeader().contains("SEARCHED PRODUCTS") , "'SEARCHED PRODUCTS' is not visible ");
-        System.out.println("'SEARCHED PRODUCTS' is visible");
- 
- }
+        productsPage.deleteFromCart();
+        assertTrue(productsPage.getEmptyCartMsg().contains("empty") , "the product is not deleted successfully");
+        // assertFalse(productsPage.getProductName().contains(addedProduct) , "the product is not deleted successfully");
+        System.out.println("the product is deleted successfully");
+       
+}   
     
     
     @BeforeClass
     public void setUpClass()  throws FileNotFoundException  {
         Homepage = new Home_Page("chrome");
-        ProductsPage = new Products_Page();
+        productsPage = new Products_Page();
+        CartPage = new Cart_Page();
     }
 
     @AfterClass
     public void tearDownClass() throws Exception {
-        base.BaseDriver.quitDriver();   
+       base.BaseDriver.quitDriver();   
     }
 
     @BeforeMethod
     public void setUpMethod() throws Exception {
-        System.out.println("TC09 - START");
+        System.out.println("TC17 - START");
     }
 
     @AfterMethod
     public void tearDownMethod() throws Exception {
-        System.out.println("TC09 - END");
+        System.out.println("TC17 - END");
     }
+    
     
     
 }

@@ -51,6 +51,16 @@ class ContactUsUsers {
 }
 
 
+class paymentData 
+{
+    public String nameOnCard;
+    public String cardNumber;
+    public String cvc;
+    public String expiryMonth;
+    public String expiryYear;
+}
+
+
 
 public class HelperClass {
     private static final String TestPrjRoot = "src/test/resources/";
@@ -99,6 +109,20 @@ public class HelperClass {
     {
         FileReader reader = new FileReader(TestPrjRoot+TestDataFolder+fileName);
         ContactUsUsers[] ListOfCredentials = new Gson().fromJson(reader, ContactUsUsers[].class);
+        return ListOfCredentials;
+    }
+    
+    
+                /**
+     *
+     * @param fileName
+     * @return
+     * @throws FileNotFoundException
+     */
+    public static paymentData[] ReadpaymentData (String fileName) throws FileNotFoundException
+    {
+        FileReader reader = new FileReader(TestPrjRoot+TestDataFolder+fileName);
+        paymentData[] ListOfCredentials = new Gson().fromJson(reader, paymentData[].class);
         return ListOfCredentials;
     }
 }

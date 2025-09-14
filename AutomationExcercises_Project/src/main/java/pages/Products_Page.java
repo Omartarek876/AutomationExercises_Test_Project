@@ -1,74 +1,117 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pages;
 
 import utils.*;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 
-/**
- *
- * @author Omar Tarek
- */
 public class Products_Page {
     
     private By searchBarLocator = By.id("search_product");
     private By searchButtonLocator = By.id("submit_search");
-    private By FirstProductDetailsLocator = By.cssSelector("a[href='/product_details/1']");
-    private By ForthProductDetailsLocator = By.cssSelector("a[href='/product_details/4']");
-   //name, category, price, availability, condition, brand
+    private By firstProductDetailsLocator = By.cssSelector("a[href='/product_details/1']");
+    private By fourthProductDetailsLocator = By.cssSelector("a[href='/product_details/4']");
+    
+    // product details
     private By productNameLocator = By.xpath("//div[@class='product-information']/h2");
     private By productCategoryLocator = By.xpath("//div[@class='product-information']/p[contains(text(),'Category')]");
     private By productPriceLocator = By.xpath("//div[@class='product-information']//span/span");
     private By productAvailabilityLocator = By.xpath("//div[@class='product-information']//p[contains(normalize-space(.),'Availability')]");
     private By productConditionLocator = By.xpath("//div[@class='product-information']//p[contains(normalize-space(.),'Condition')]");
     private By productBrandLocator = By.xpath("//div[@class='product-information']//p[contains(normalize-space(.),'Brand')]");
+    
+    // search results
     private By searchedProductsLocator = By.cssSelector("h2.title.text-center");
+    
+    // cart flow
+    private By continueButtonLocator = By.cssSelector("button.close-modal, #cartModal button[data-dismiss='modal']"); 
+    private By cartLocator = By.xpath("//a[contains(text(),'Cart')]");
+    private By quantityLocator = By.id("quantity");
+    private By addToCartLocator = By.cssSelector("button.btn.btn-default.cart");
+    private By deleteFromCartLocator = By.cssSelector("#product-1 > td.cart_delete > a");
+    private By emptyCartMsg = By.cssSelector("#empty_cart > p");
+
+    // ---------- Methods ----------
     
     public void clickSearchButton() {
         ElementUtils.click(searchButtonLocator);
     }
     
-    public void searchProduct(String productName)
-    {
+    public void searchProduct(String productName) {
         KeyboardUtils.sendKeys(searchBarLocator, productName);
         clickSearchButton();
     }
     
-    public void clickOnFirstProduct(){
-        ActionsUtils.scrollToElement(ForthProductDetailsLocator);
-        ElementUtils.click(FirstProductDetailsLocator);
-    }
-
-    public String getProductName(){
+    // getters for product details
+    public String getProductName() {
         return ElementUtils.getText(productNameLocator);
     } 
     
-    public String getProductCategory(){
+    public String getProductCategory() {
         return ElementUtils.getText(productCategoryLocator);
     }
 
-    public String getProductPrice(){
+    public String getProductPrice() {
         return ElementUtils.getText(productPriceLocator);
     }
 
-    public String getProductAvailability(){
+    public String getProductAvailability() {
         return ElementUtils.getText(productAvailabilityLocator);
     }
 
-    public String getProductCondition(){
+    public String getProductCondition() {
         return ElementUtils.getText(productConditionLocator);
     }
 
-    public String getProductBrand(){
+    public String getProductBrand() {
         return ElementUtils.getText(productBrandLocator);
     }
     
-    public String searchedProductsHeader(){
+    public String searchedProductsHeader() {
         return ElementUtils.getText(searchedProductsLocator);
     }
     
+    public void hoverProductAndClick(String productId) {
+        By addElementToCartLocator = By.cssSelector("a[data-product-id='" + productId + "']");
+    //    By PostAddedElementToCartLocator = By.cssSelector("a[data-product-id='" + (productId+3) +"']");
 
-
+    //    ActionsUtils.scrollToElement(PostAddedElementToCartLocator);
+        ActionsUtils.hoverAndClick(addElementToCartLocator);
+        ElementUtils.click(continueButtonLocator);
+    }
+    
+    public void viewProduct(String productId) {
+        By productDetailsLocator = By.cssSelector("a[href='/product_details/" + productId + "']");
+    
+        ActionsUtils.scrollToElement(productDetailsLocator);
+        ElementUtils.click(productDetailsLocator);
+    }
+      
+    public void clickCart() {
+        ElementUtils.click(cartLocator);
+    }
+    
+    public void enterQuantity (String quantity)
+    {
+        KeyboardUtils.sendKeys(quantityLocator, quantity);
+    }
+       
+    public void addToCart ()
+    {
+        ElementUtils.click(addToCartLocator);
+        ElementUtils.click(continueButtonLocator);
+    }
+    
+    
+    public void deleteFromCart()
+    {
+        ElementUtils.click(deleteFromCartLocator);
+    }
+    
+    public String getEmptyCartMsg()
+    {
+        return ElementUtils.getText(emptyCartMsg);
+    }
+    
+    
+     
 }

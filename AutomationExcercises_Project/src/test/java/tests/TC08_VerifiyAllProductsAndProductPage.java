@@ -26,7 +26,7 @@ public class TC08_VerifiyAllProductsAndProductPage {
         Homepage.clickProducts();
         assertEquals(BrowserUtils.GetCurrentLink() ,"https://automationexercise.com/products");
         
-        ProductsPage.clickOnFirstProduct();
+        ProductsPage.viewProduct("1");
       
         assertFalse(ProductsPage.getProductName().isEmpty(), "Product name is not visible!");
         assertFalse(ProductsPage.getProductCategory().isEmpty(), "Product category is not visible!");

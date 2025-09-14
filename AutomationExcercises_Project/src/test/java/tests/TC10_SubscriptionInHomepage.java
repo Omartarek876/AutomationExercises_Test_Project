@@ -10,39 +10,40 @@ import org.testng.annotations.*;
 import pages.*;
 import utils.*;
 
+
 /**
  *
  * @author Omar Tarek
  */
-public class TC09_SearchProduct {
+public class TC10_SubscriptionInHomepage {
     
     Home_Page Homepage;
-    Products_Page ProductsPage;
 
     
     @Test
-    public void TC09_SearchProduct()
+    public void TC10_SubscriptionInHomepage()
     {   
         BrowserUtils.navigateToURL("https://automationexercise.com/");
         assertTrue(Homepage.homePageheader().contains("Automation")
                 , "the home page is invisible");
         System.out.println("the home page is visible");
         
-        Homepage.clickProducts();
-        assertEquals(BrowserUtils.GetCurrentLink() ,"https://automationexercise.com/products");
+        Homepage.scrollToFooter();
+        System.out.println(Homepage.subscriptionHeader());
+        assertTrue(Homepage.subscriptionHeader().contains("SUBSCRIPTION") , "text 'SUBSCRIPTION' is invisible");
+        System.out.println("text 'SUBSCRIPTION' is visible");
         
-        ProductsPage.searchProduct("Men Tshirt");
-        System.out.println(ProductsPage.searchedProductsHeader());
-        assertTrue(ProductsPage.searchedProductsHeader().contains("SEARCHED PRODUCTS") , "'SEARCHED PRODUCTS' is not visible ");
-        System.out.println("'SEARCHED PRODUCTS' is visible");
- 
- }
+        Homepage.sendSubscriptionEmail("ot482002@gmail.com");
+        System.out.println(Homepage.getSuccessMessage());
+        assertTrue(Homepage.getSuccessMessage().contains("You have been successfully subscribed!") , "success message 'You have been successfully subscribed!' is Invisible");
+        System.out.println("success message 'You have been successfully subscribed!' is visible");
+  
+ }   
     
     
     @BeforeClass
     public void setUpClass()  throws FileNotFoundException  {
         Homepage = new Home_Page("chrome");
-        ProductsPage = new Products_Page();
     }
 
     @AfterClass
@@ -52,13 +53,14 @@ public class TC09_SearchProduct {
 
     @BeforeMethod
     public void setUpMethod() throws Exception {
-        System.out.println("TC09 - START");
+        System.out.println("TC10 - START");
     }
 
     @AfterMethod
     public void tearDownMethod() throws Exception {
-        System.out.println("TC09 - END");
+        System.out.println("TC10 - END");
     }
+    
     
     
 }

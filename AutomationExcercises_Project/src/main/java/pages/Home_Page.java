@@ -7,10 +7,8 @@ package pages;
 import utils.*;
 import base.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 /**
@@ -45,10 +43,13 @@ public class Home_Page {
     private By loggedAsLocator = By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[10]/a");
     private By DeleteAccountLocator = By.cssSelector("#header > div > div > div > div.col-sm-8 > div > ul > li:nth-child(5) > a");
     private By LogoutLocator = By.cssSelector("#header > div > div > div > div.col-sm-8 > div > ul > li:nth-child(4) > a");
-    
-    
-    
-    
+    private By footerLocator = By.cssSelector("footer"); 
+    private By subscriptionHeaderLocator = By.className("single-widget");
+    private By subscriptionEmailLocator = By.id("susbscribe_email");
+    private By SubscriptionArrowLocator = By.id("subscribe");
+    private By successMessageLocator = By.cssSelector("div.alert-success");
+
+
     
     public Home_Page(String Browser) {
         this.browser = Browser;
@@ -123,5 +124,25 @@ public class Home_Page {
        return ElementUtils.getText(testcasesPageHeaderLocator);
     }
     
-       
+    public void scrollToFooter ()
+    {
+        ActionsUtils.scrollToElement(footerLocator);
+    }
+    
+    public String subscriptionHeader ()
+    {
+        return ElementUtils.getText(subscriptionHeaderLocator);
+    }
+    
+    public void sendSubscriptionEmail(String email)
+    {
+        KeyboardUtils.sendKeys(subscriptionEmailLocator, email);
+        ElementUtils.click(SubscriptionArrowLocator);
+    }
+    
+    public String getSuccessMessage()
+    {
+        return ElementUtils.getText(successMessageLocator);
+    }
+    
 }
