@@ -1,22 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+/**
+ *
+ * @author Omar Tarek
  */
+
 package pages;
 
 import utils.*;
 import base.*;
 import java.io.IOException;
 import java.util.ArrayList;
-
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-/**
- *
- * @author Omar Tarek
- */
+
 public class Home_Page {
     
     private String browser;
@@ -42,7 +39,7 @@ public class Home_Page {
     private By jeansLocator     = By.xpath("//*[@id=\"Men\"]/div/ul/li[2]/a");
     private By kidsDressLocator = By.xpath("//*[@id=\"Kids\"]/div/ul/li[1]/a");
     private By kidsTopsLocator  = By.xpath("//*[@id=\"Kids\"]/div/ul/li[2]/a");
-    private By loggedAsLocator = By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[10]/a");
+    private By loggedAsLocator = By.cssSelector("#header > div > div > div > div.col-sm-8 > div > ul > li:nth-child(10) > a > b");
     private By DeleteAccountLocator = By.cssSelector("a[href='/delete_account']");
     private By LogoutLocator = By.cssSelector("#header > div > div > div > div.col-sm-8 > div > ul > li:nth-child(4) > a");
     private By footerLocator = By.cssSelector("footer"); 
@@ -50,13 +47,12 @@ public class Home_Page {
     private By subscriptionEmailLocator = By.id("susbscribe_email");
     private By SubscriptionArrowLocator = By.id("subscribe");
     private By successMessageLocator = By.cssSelector("div.alert-success");
-private By recommendedProductNames = By.cssSelector("#recommended-item-carousel .productinfo p");
-
-        private By allSearchResultsLocator = By.cssSelector(".product-image-wrapper");
+    private By recommendedProductNames = By.cssSelector("#recommended-item-carousel .productinfo p");
+    private By recommendedItemsSection = By.xpath("//h2[normalize-space()='recommended items']");
+    private By allSearchResultsLocator = By.cssSelector(".product-image-wrapper");
     private By continueButtonLocator = By.cssSelector("button.close-modal, #cartModal button[data-dismiss='modal']"); 
 
 
-    
     public Home_Page(String Browser) throws IOException {
         this.browser = Browser;
         BaseDriver.initializeDriver(browser);
@@ -234,13 +230,50 @@ public List<String> addAllSearchResultsToCart() {
     return addedProductNames;
 }
 
+public List<String> addedDesiredProductNames = new ArrayList<>();
+public List<String> addProductsToCartByIds(String[] productIds) {
+    for (String productId : productIds) {
+        try {
+            // Dynamic locators
+            By currentProductName = By.xpath("//a[@data-product-id='" + productId + "']/ancestor::div[@class='productinfo text-center']//p");
+            By currentProductAddBtn = By.cssSelector("a[data-product-id='" + productId + "']");
 
-private By recommendedItemsSection = By.xpath("//h2[normalize-space()='recommended items']");
+            // Scroll and get product name
+            ActionsUtils.scrollToElement(currentProductName);
+            String productName = ElementUtils.getText(currentProductName);
+            addedDesiredProductNames.add(productName);
+
+            // Add to cart
+            ActionsUtils.scrollToElement(currentProductAddBtn);
+            ElementUtils.click(currentProductAddBtn);
+
+            // Handle "Continue Shopping" popup
+            try {
+                ElementUtils.click(continueButtonLocator);
+            } catch (Exception ignorePopup) {
+                System.out.println("No popup appeared for productId: " + productId);
+            }
+
+            System.out.println("Added to cart (by ID " + productId + "): " + productName);
+
+        } catch (Exception e) {
+            System.out.println("Skipping productId " + productId + " due to: "
+                    + e.getClass().getSimpleName() + " - " + e.getMessage());
+        }
+    }
+
+    return addedDesiredProductNames;
+}
+
+
+
 
 // Scroll لآخر الصفحة
 public void scrollToBottom() {
-    ActionsUtils.scrollToElement(footerLocator);// assuming عندك Utils بتعمل scroll
+    ActionsUtils.scrollToElement(SubscriptionArrowLocator);// assuming عندك Utils بتعمل scroll
 }
+
+
 
 // Get Recommended Items section title
 public String getRecommendedItemsTitle() {

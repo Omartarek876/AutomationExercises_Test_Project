@@ -64,6 +64,26 @@ private By ContinueBtnLocator = By.cssSelector("#form > div > div > div > div > 
     public void clickContinueAfterSuccess() {
         ElementUtils.click(ContinueBtnLocator);
     }
+    
+    
+    // === Locators ===
+private By deliveryAddressBox = By.id("address_delivery");
+private By billingAddressBox  = By.id("address_invoice");
+
+// === Method to get Delivery Address ===
+public String getDeliveryAddress() {
+    String deliveryAddress = ElementUtils.getText(deliveryAddressBox).trim();
+    System.out.println("Delivery Address: " + deliveryAddress);
+    return deliveryAddress;
+}
+
+// === Method to get Billing Address ===
+public String getBillingAddress() {
+    String billingAddress = ElementUtils.getText(billingAddressBox).trim();
+    System.out.println("Billing Address: " + billingAddress);
+    return billingAddress;
+}
+
 
 
 }

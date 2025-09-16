@@ -83,7 +83,7 @@ public void verifyProductsInCart(List<String> ExpextedElements) {
     System.out.println("Actual products in cart: " + cartProducts);
 
     // Simple verification: all added products should be in cart
-    for (String expected : homePage.addedProductNames) {
+    for (String expected : ExpextedElements) {
         if (!cartProducts.contains(expected)) {
             throw new AssertionError("Product not found in cart: " + expected);
         }

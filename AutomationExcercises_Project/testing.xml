@@ -9,7 +9,7 @@
 
     <test name="automationTests">
         <classes>  
-                 <class name="tests.TC22_AddToCartFromRecommendedItems"/> 
+                 <class name="tests.TC23_VerifyAddressDetailsInCheckoutPage"/> 
         </classes>
     </test>
 
@@ -40,6 +40,7 @@
                  <class name="tests.TC20_SearchProductsAndVerifyCartAfterLogin"/> 
                  <class name="tests.TC21_AddReviewOnProduct"/> 
                  <class name="tests.TC22_AddToCartFromRecommendedItems"/> 
+                 <class name="tests.TC23_VerifyAddressDetailsInCheckoutPage"/> 
 
 
 

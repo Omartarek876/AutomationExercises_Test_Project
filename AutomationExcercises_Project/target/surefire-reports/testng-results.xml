@@ -2,32 +2,39 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-16T05:09:23 EEST" name="AutomationExerciseTestSuite" finished-at="2025-09-16T05:09:56 EEST" duration-ms="33025">
+  <suite started-at="2025-09-16T06:16:05 EEST" name="AutomationExerciseTestSuite" finished-at="2025-09-16T06:16:25 EEST" duration-ms="20263">
     <groups>
     </groups>
-    <test started-at="2025-09-16T05:09:23 EEST" name="automationTests" finished-at="2025-09-16T05:09:56 EEST" duration-ms="33025">
-      <class name="tests.TC22_AddToCartFromRecommendedItems">
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:tests.TC22_AddToCartFromRecommendedItems@7ef82753]" started-at="2025-09-16T05:09:23 EEST" name="setUpClass" finished-at="2025-09-16T05:09:25 EEST" duration-ms="1865" status="PASS">
+    <test started-at="2025-09-16T06:16:05 EEST" name="automationTests" finished-at="2025-09-16T06:16:25 EEST" duration-ms="20263">
+      <class name="tests.TC23_VerifyAddressDetailsInCheckoutPage">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:tests.TC23_VerifyAddressDetailsInCheckoutPage@7bba5817]" started-at="2025-09-16T06:16:05 EEST" name="setUpClass" finished-at="2025-09-16T06:16:07 EEST" duration-ms="1939" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method is-config="true" signature="setUpMethod()[pri:0, instance:tests.TC22_AddToCartFromRecommendedItems@7ef82753]" started-at="2025-09-16T05:09:25 EEST" name="setUpMethod" finished-at="2025-09-16T05:09:25 EEST" duration-ms="2" status="PASS">
+        <test-method is-config="true" signature="setUpMethod()[pri:0, instance:tests.TC23_VerifyAddressDetailsInCheckoutPage@7bba5817]" started-at="2025-09-16T06:16:07 EEST" name="setUpMethod" finished-at="2025-09-16T06:16:07 EEST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpMethod -->
-        <test-method signature="TC22_AddToCartFromRecommendedItems()[pri:0, instance:tests.TC22_AddToCartFromRecommendedItems@7ef82753]" started-at="2025-09-16T05:09:25 EEST" name="TC22_AddToCartFromRecommendedItems" finished-at="2025-09-16T05:09:56 EEST" duration-ms="30779" status="PASS">
+        <test-method signature="TC23_VerifyAddressDetailsInCheckoutPage(tests.CreateAccountUsers)[pri:0, instance:tests.TC23_VerifyAddressDetailsInCheckoutPage@7bba5817]" started-at="2025-09-16T06:16:07 EEST" name="TC23_VerifyAddressDetailsInCheckoutPage" data-provider="usersData" finished-at="2025-09-16T06:16:23 EEST" duration-ms="15756" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[tests.CreateAccountUsers@5bbbdd4b]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC22_AddToCartFromRecommendedItems -->
-        <test-method is-config="true" signature="tearDownMethod()[pri:0, instance:tests.TC22_AddToCartFromRecommendedItems@7ef82753]" started-at="2025-09-16T05:09:56 EEST" name="tearDownMethod" finished-at="2025-09-16T05:09:56 EEST" duration-ms="1" status="PASS">
+        </test-method> <!-- TC23_VerifyAddressDetailsInCheckoutPage -->
+        <test-method is-config="true" signature="tearDownMethod()[pri:0, instance:tests.TC23_VerifyAddressDetailsInCheckoutPage@7bba5817]" started-at="2025-09-16T06:16:23 EEST" name="tearDownMethod" finished-at="2025-09-16T06:16:23 EEST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownMethod -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:tests.TC22_AddToCartFromRecommendedItems@7ef82753]" started-at="2025-09-16T05:09:56 EEST" name="tearDownClass" finished-at="2025-09-16T05:09:56 EEST" duration-ms="223" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:tests.TC23_VerifyAddressDetailsInCheckoutPage@7bba5817]" started-at="2025-09-16T06:16:23 EEST" name="tearDownClass" finished-at="2025-09-16T06:16:25 EEST" duration-ms="2431" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
-      </class> <!-- tests.TC22_AddToCartFromRecommendedItems -->
+      </class> <!-- tests.TC23_VerifyAddressDetailsInCheckoutPage -->
     </test> <!-- automationTests -->
   </suite> <!-- AutomationExerciseTestSuite -->
 </testng-results>

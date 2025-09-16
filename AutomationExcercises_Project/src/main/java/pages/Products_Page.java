@@ -146,7 +146,113 @@ public void SubmitProductReview(String name, String email, String reviewText) {
 public String getReviewSuccessMessage() {
     return ElementUtils.getText(reviewSuccessMessage);
 }
+  
+    
+    
+    
+    
+    
+    
+    
+    
+public List<String> addedDesiredProductNames = new ArrayList<>();
+public List<String> addProductsToCartByIds(String[] productIds) {
+    for (String productId : productIds) {
+        try {
+            // Dynamic locators
+            By currentProductName = By.xpath("//a[@data-product-id='" + productId + "']/ancestor::div[@class='productinfo text-center']//p");
+            By currentProductAddBtn = By.cssSelector("a[data-product-id='" + productId + "']");
 
+            // Scroll and get product name
+            ActionsUtils.scrollToElement(currentProductName);
+            String productName = ElementUtils.getText(currentProductName);
+            addedDesiredProductNames.add(productName);
+
+            // Add to cart
+            ActionsUtils.scrollToElement(currentProductAddBtn);
+            ElementUtils.click(currentProductAddBtn);
+
+            // Handle "Continue Shopping" popup
+            try {
+                ElementUtils.click(continueButtonLocator);
+            } catch (Exception ignorePopup) {
+                System.out.println("No popup appeared for productId: " + productId);
+            }
+
+            System.out.println("Added to cart (by ID " + productId + "): " + productName);
+
+        } catch (Exception e) {
+            System.out.println("Skipping productId " + productId + " due to: "
+                    + e.getClass().getSimpleName() + " - " + e.getMessage());
+        }
+    }
+
+    return addedDesiredProductNames;
+}
+
+
+
+
+private By SubscriptionArrowLocator = By.id("subscribe");
+private By recommendedItemsSection = By.xpath("//h2[normalize-space()='recommended items']");
+
+    // Scroll لآخر الصفحة
+public void scrollToBottom() {
+    ActionsUtils.scrollToElement(SubscriptionArrowLocator);// assuming عندك Utils بتعمل scroll
+}
+
+
+// Get Recommended Items section title
+public String getRecommendedItemsTitle() {
+    return ElementUtils.getText(recommendedItemsSection);
+}
+
+    public void hoverProductAndAddToCart(String productId) {
+        By addElementToCartLocator = By.cssSelector("a[data-product-id='" + productId + "']");
+    //    By PostAddedElementToCartLocator = By.cssSelector("a[data-product-id='" + (productId+3) +"']");
+
+    //    ActionsUtils.scrollToElement(PostAddedElementToCartLocator);
+        ActionsUtils.hoverAndClick(addElementToCartLocator);
+        ElementUtils.click(continueButtonLocator);
+    }
+   
+
+public List<String> addedRecommendedProductNames = new ArrayList<>();
+public List<String> hoverAndAddMultipleRecommendedProducts(List<String> productIds) {
+
+    for (String productId : productIds) {
+        try {
+            // Locator for Add to cart button
+            By recommendedAddToCartLocator = By.cssSelector("#recommended-item-carousel a[data-product-id='" + productId + "']");
+            
+            // Locator for the product name (based on productId position)
+            By productNameLocator = By.xpath("//div[@id='recommended-item-carousel']//a[@data-product-id='" + productId + "']/ancestor::div[@class='productinfo text-center']/p");
+
+            // Hover + Click Add
+            ActionsUtils.scrollToElement(recommendedAddToCartLocator);
+            ActionsUtils.hoverAndClick(recommendedAddToCartLocator);
+
+            // Close popup
+            try {
+                ElementUtils.click(continueButtonLocator);
+            } catch (Exception ignorePopup) {
+                System.out.println("No popup for productId: " + productId);
+            }
+
+            // Get and store product name
+            String productName = ElementUtils.getText(productNameLocator);
+            addedRecommendedProductNames.add(productName);
+
+            System.out.println("Added Recommended Product: " + productName);
+
+        } catch (Exception e) {
+            System.out.println("Skipping recommended productId " + productId + " due to: " 
+                               + e.getClass().getSimpleName() + " - " + e.getMessage());
+        }
+    }
+
+    return addedRecommendedProductNames;
+}
 
 
      

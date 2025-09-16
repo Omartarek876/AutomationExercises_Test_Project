@@ -67,6 +67,8 @@ public class TC16_LoginBeforeCheckout {
         assertTrue(checkoutPage.getSuccessPaymentMsg().contains("Congratulations!")  , "Your order has not been placed successfully!");
         System.out.println("Your order has been placed successfully!");
         checkoutPage.clickContinueAfterSuccess();
+        
+        
       /* 
        Homepage.DeleteAccount();
         assertEquals(BrowserUtils.GetCurrentLink() , "https://automationexercise.com/delete_account");
