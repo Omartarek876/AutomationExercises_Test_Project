@@ -49,8 +49,6 @@ class ContactUsUsers {
     public String ContactUsFormMsg;
     public String ContactUsFormFilePath;
 }
-
-
 class paymentData 
 {
     public String nameOnCard;
@@ -58,6 +56,13 @@ class paymentData
     public String cvc;
     public String expiryMonth;
     public String expiryYear;
+}
+
+class reviewsData 
+{
+    public String reviewerName;
+    public String reviewerEmail;
+    public String reviewText;
 }
 
 
@@ -123,6 +128,19 @@ public class HelperClass {
     {
         FileReader reader = new FileReader(TestPrjRoot+TestDataFolder+fileName);
         paymentData[] ListOfCredentials = new Gson().fromJson(reader, paymentData[].class);
+        return ListOfCredentials;
+    }
+    
+                    /**
+     *
+     * @param fileName
+     * @return
+     * @throws FileNotFoundException
+     */
+    public static reviewsData[] ReadReviewData (String fileName) throws FileNotFoundException
+    {
+        FileReader reader = new FileReader(TestPrjRoot+TestDataFolder+fileName);
+        reviewsData[] ListOfCredentials = new Gson().fromJson(reader, reviewsData[].class);
         return ListOfCredentials;
     }
 }

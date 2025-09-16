@@ -5,6 +5,7 @@
 package tests;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import static org.testng.Assert.*;
 import org.testng.annotations.*;
 import pages.*;
@@ -31,23 +32,30 @@ public class TC09_SearchProduct {
         Homepage.clickProducts();
         assertEquals(BrowserUtils.GetCurrentLink() ,"https://automationexercise.com/products");
         
-        ProductsPage.searchProduct("Men Tshirt");
+        String searchedProduct = "men";
+        ProductsPage.searchProduct(searchedProduct);
+        
         System.out.println(ProductsPage.searchedProductsHeader());
         assertTrue(ProductsPage.searchedProductsHeader().contains("SEARCHED PRODUCTS") , "'SEARCHED PRODUCTS' is not visible ");
         System.out.println("'SEARCHED PRODUCTS' is visible");
- 
+      /*  
+        System.out.println("The searched products for: " + searchedProduct);
+       ProductsPage.printAllSearchResultNames();
+        System.out.println("all the products related to search are visible");
+        */
+
  }
     
     
     @BeforeClass
-    public void setUpClass()  throws FileNotFoundException  {
+    public void setUpClass()  throws FileNotFoundException, IOException  {
         Homepage = new Home_Page("chrome");
         ProductsPage = new Products_Page();
     }
 
     @AfterClass
     public void tearDownClass() throws Exception {
-        base.BaseDriver.quitDriver();   
+       // base.BaseDriver.quitDriver();   
     }
 
     @BeforeMethod

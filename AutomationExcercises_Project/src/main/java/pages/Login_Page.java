@@ -26,7 +26,8 @@ public class Login_Page {
     private By errorMessageLocator = By.xpath("//p[contains(text(),'Your email or password is incorrect!')]"); // Login error message
     private By forgotPasswordLinkLocator = By.xpath("//a[contains(text(),'Forgot Password?')]"); // Forgot Password link
     private By InvalidLoginErrorMsgLocator = By.xpath("//*[@id=\"form\"]/div/div/div[1]/div/form/p");
-    
+    private By cartLocator = By.xpath("//a[contains(text(),'Cart')]");
+
 
     
     public void enterEmail(String email)
@@ -64,7 +65,9 @@ public class Login_Page {
         return ElementUtils.getText(InvalidLoginErrorMsgLocator);
     }
     
-
+    public void clickCart() {
+        ElementUtils.click(cartLocator);
+    }
 
 
 }

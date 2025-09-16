@@ -1,6 +1,7 @@
 package tests;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import static org.testng.Assert.*;
 import org.testng.annotations.*;
 import pages.*;
@@ -73,7 +74,7 @@ public class TC01_RegisterUser {
     
     
     @BeforeClass
-    public void setUpClass()  throws FileNotFoundException  {
+    public void setUpClass()  throws FileNotFoundException, IOException  {
         ListOfUsers = HelperClass.ReadCreateAccountUsers("CreateAccountData.json");
         System.out.println("Number of users loaded: " + ListOfUsers.length);
         

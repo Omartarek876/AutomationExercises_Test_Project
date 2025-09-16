@@ -1,24 +1,27 @@
 package pages;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
 import utils.*;
 
 public class Cart_Page {
     
-    // Footer
+    Home_Page homePage = new Home_Page();
+    
     private By footerLocator = By.tagName("footer"); 
     private By subscriptionHeaderLocator = By.cssSelector("div.single-widget h2"); // header inside widget
     private By subscriptionEmailLocator = By.id("susbscribe_email");
     private By subscriptionButtonLocator = By.cssSelector("button#subscribe");
     private By successMessageLocator = By.cssSelector("div.alert-success.alert");
-
-    // Cart products (generic dynamic locators instead of hardcoded #product-1/#product-2)
     private String productNameLocatorTemplate = "//tr[@id='product-%s']//td[@class='cart_description']//h4/a";
     private String productPriceLocatorTemplate = "//tr[@id='product-%s']//td[@class='cart_price']/p";
     private String productQuantityLocatorTemplate = "//tr[@id='product-%s']//td[@class='cart_quantity']/button";
     private String productTotalLocatorTemplate = "//tr[@id='product-%s']//td[@class='cart_total']/p";
     private By shoppingCartHeaderLocator = By.cssSelector("#cart_items > div > div.breadcrumbs > ol > li.active");
+    private By cartProductNamesLocator = By.cssSelector("td.cart_description h4 a");
 
         
     // -------- Methods --------
@@ -66,5 +69,26 @@ public class Cart_Page {
         return ElementUtils.getText(shoppingCartHeaderLocator);
     }
 
+
+
+public void verifyProductsInCart(List<String> ExpextedElements) {
+    List<String> cartProducts = new ArrayList<>();
+    List<WebElement> cartElements = ElementUtils.getElements(cartProductNamesLocator);
+
+    for (WebElement element : cartElements) {
+        cartProducts.add(element.getText().trim());
+    }
+
+    System.out.println("Expected products: " + ExpextedElements);
+    System.out.println("Actual products in cart: " + cartProducts);
+
+    // Simple verification: all added products should be in cart
+    for (String expected : homePage.addedProductNames) {
+        if (!cartProducts.contains(expected)) {
+            throw new AssertionError("Product not found in cart: " + expected);
+        }
+    }
+    System.out.println("All products verified in cart");
+}
 
 }

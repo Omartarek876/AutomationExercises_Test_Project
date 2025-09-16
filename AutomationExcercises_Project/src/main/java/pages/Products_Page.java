@@ -1,8 +1,11 @@
 package pages;
 
+import java.util.ArrayList;
+import java.util.List;
 import utils.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
 
 public class Products_Page {
     
@@ -29,6 +32,18 @@ public class Products_Page {
     private By addToCartLocator = By.cssSelector("button.btn.btn-default.cart");
     private By deleteFromCartLocator = By.cssSelector("#product-1 > td.cart_delete > a");
     private By emptyCartMsg = By.cssSelector("#empty_cart > p");
+    private By allSearchResultsLocator = By.cssSelector(".product-image-wrapper");
+
+       
+    
+    // Review section locators
+private By reviewSectionHeader = By.xpath("//a[normalize-space()='Write Your Review']");
+private By reviewNameField = By.id("name");
+private By reviewEmailField = By.id("email");
+private By reviewTextArea = By.id("review");
+private By reviewSubmitButton = By.id("button-review");
+private By reviewSuccessMessage = By.xpath("//*[contains(text(),'Thank you for your review.')]");
+
 
     // ---------- Methods ----------
     
@@ -92,7 +107,7 @@ public class Products_Page {
     
     public void enterQuantity (String quantity)
     {
-        KeyboardUtils.sendKeys(quantityLocator, quantity);
+        KeyboardUtils.clearAndSendKeys(quantityLocator, quantity);
     }
        
     public void addToCart ()
@@ -111,7 +126,28 @@ public class Products_Page {
     {
         return ElementUtils.getText(emptyCartMsg);
     }
-    
-    
+
+// Get review section header text
+public String getReviewSectionHeader() {
+    ActionsUtils.scrollToElement(reviewSubmitButton);
+    return ElementUtils.getText(reviewSectionHeader);
+}
+
+
+// Fill review form
+public void SubmitProductReview(String name, String email, String reviewText) {
+    KeyboardUtils.sendKeys(reviewNameField, name);
+    KeyboardUtils.sendKeys(reviewEmailField, email);
+    KeyboardUtils.sendKeys(reviewTextArea, reviewText);
+    ElementUtils.click(reviewSubmitButton);
+}
+
+// Get review success message text
+public String getReviewSuccessMessage() {
+    return ElementUtils.getText(reviewSuccessMessage);
+}
+
+
+
      
 }

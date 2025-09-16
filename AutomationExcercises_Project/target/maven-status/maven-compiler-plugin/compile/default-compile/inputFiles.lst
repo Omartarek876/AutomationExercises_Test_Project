@@ -1,4 +1,5 @@
 D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\main\java\base\BaseDriver.java
+D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\main\java\base\PropertiesLoader.java
 D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\main\java\pages\AccountCreated_Page.java
 D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\main\java\pages\AccountDeleted_Page.java
 D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\main\java\pages\Cart_Page.java
@@ -7,7 +8,6 @@ D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercis
 D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\main\java\pages\Home_Page.java
 D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\main\java\pages\Login_Page.java
 D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\main\java\pages\Products_Page.java
-D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\main\java\pages\SearchResult_Page.java
 D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\main\java\pages\SignUp_Page.java
 D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\main\java\utils\ActionsUtils.java
 D:\courses\01-Testing\4-Automation_Testing\Automation_Projects\AutomationExercises_Test_Project\AutomationExcercises_Project\src\main\java\utils\AlertUtils.java

@@ -5,6 +5,7 @@
 package tests;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import static org.testng.Assert.*;
 import org.testng.annotations.*;
 import pages.*;
@@ -59,7 +60,7 @@ public class TC06_ContactUsForm {
     
     
     @BeforeClass
-    public void setUpClass()  throws FileNotFoundException  {
+    public void setUpClass()  throws FileNotFoundException, IOException  {
         ListOfUsers = HelperClass.ReadContactUsForms("ContactUsData.json");
         System.out.println("Number of users loaded: " + ListOfUsers.length);
         

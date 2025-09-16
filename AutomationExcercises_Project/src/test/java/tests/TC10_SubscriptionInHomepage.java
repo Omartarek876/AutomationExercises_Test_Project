@@ -5,6 +5,7 @@
 package tests;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import static org.testng.Assert.*;
 import org.testng.annotations.*;
 import pages.*;
@@ -42,7 +43,7 @@ public class TC10_SubscriptionInHomepage {
     
     
     @BeforeClass
-    public void setUpClass()  throws FileNotFoundException  {
+    public void setUpClass()  throws FileNotFoundException, IOException  {
         Homepage = new Home_Page("chrome");
     }
 

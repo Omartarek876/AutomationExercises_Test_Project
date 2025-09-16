@@ -79,12 +79,13 @@ public class SignUp_Page {
 
     // Select Title (Mr / Mrs)
     public void selectTitle(String gender) {
-       if (gender == "male") {
-                 ElementUtils.selectRadioButton(titleMrRadioLocator);
-       } else if (gender == "female"){
-                 ElementUtils.selectRadioButton(titleMrsRadioLocator);
-      }
-   }
+        if (gender.equalsIgnoreCase("male")) {
+            ElementUtils.selectRadioButton(titleMrRadioLocator);
+        } else if (gender.equalsIgnoreCase("female")) {
+            ElementUtils.selectRadioButton(titleMrsRadioLocator);
+        }
+    }
+
     
 
     // Enter Name

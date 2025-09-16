@@ -50,17 +50,6 @@ public class ElementUtils {
         WaitUtils.waitForClickability(locator, 10).click();
     }
 
-    /**
-     * Clears any existing text and then enters new text into an input field.
-     * This method ensures the field is empty before entering the new value.
-     *
-     * @param locator The {@link By} locator of the input element.
-     * @param text The new text to enter into the field.
-     */
-    public static void clearAndSendKeys(By locator, String text) {
-        WaitUtils.waitForVisibility(locator, 5).clear();
-        getElement(locator).sendKeys(text);
-    }
 
     /**
      * Gets the text of a located element.
