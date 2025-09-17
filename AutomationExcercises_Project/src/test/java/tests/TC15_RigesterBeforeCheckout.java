@@ -67,9 +67,9 @@ public class TC15_RigesterBeforeCheckout {
         System.out.println("you logged in successfully as " + UserTestData.SignUpName);
 
         Homepage.clickProducts();
-        productsPage.hoverProductAndClick("1");
-        productsPage.hoverProductAndClick("2");
-        
+        String[] productIds = {"1", "2"};  // pick only these
+        productsPage.addProductsToCartByIds(productIds);
+
         productsPage.clickCart();
         assertTrue(CartPage.getshoppingCartHeader().contains("Shopping Cart") , "cart page is not displayed");
         System.out.println("cart page is displayed");

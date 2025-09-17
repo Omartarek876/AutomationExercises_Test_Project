@@ -13,6 +13,5 @@ utils\ElementUtils.class
 pages\Cart_Page.class
 pages\Login_Page.class
 pages\AccountCreated_Page.class
-base\PropertiesLoader.class
 utils\BrowserUtils.class
 pages\ContactUs_page.class

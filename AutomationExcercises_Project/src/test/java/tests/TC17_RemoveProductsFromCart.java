@@ -28,7 +28,9 @@ public class TC17_RemoveProductsFromCart {
         System.out.println("the home page is visible");
         
         Homepage.clickProducts();
-        productsPage.hoverProductAndClick("1");
+        String[] productIds = {"1"};  // pick only these
+        productsPage.addProductsToCartByIds(productIds);
+        
         productsPage.clickCart();
         String addedProduct = CartPage.getProductNameInCart("1");
         

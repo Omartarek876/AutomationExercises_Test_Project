@@ -33,9 +33,9 @@ public class TC12_AddProductsInCart {
         System.out.println("the home page is visible");
         
         Homepage.clickProducts();
-        productsPage.hoverProductAndClick("1");
-        productsPage.hoverProductAndClick("2");
-        
+        String[] productIds = {"1", "2"};  // pick only these
+        productsPage.addProductsToCartByIds(productIds);
+
         productsPage.clickCart();
         // Verify product 1
         assertTrue(CartPage.getProductNameInCart("1").contains("Blue Top"), "Product 1 name mismatch");

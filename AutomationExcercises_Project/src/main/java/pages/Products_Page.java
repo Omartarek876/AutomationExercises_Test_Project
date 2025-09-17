@@ -85,15 +85,6 @@ private By reviewSuccessMessage = By.xpath("//*[contains(text(),'Thank you for y
         return ElementUtils.getText(searchedProductsLocator);
     }
     
-    public void hoverProductAndClick(String productId) {
-        By addElementToCartLocator = By.cssSelector("a[data-product-id='" + productId + "']");
-    //    By PostAddedElementToCartLocator = By.cssSelector("a[data-product-id='" + (productId+3) +"']");
-
-    //    ActionsUtils.scrollToElement(PostAddedElementToCartLocator);
-        ActionsUtils.hoverAndClick(addElementToCartLocator);
-        ElementUtils.click(continueButtonLocator);
-    }
-    
     public void viewProduct(String productId) {
         By productDetailsLocator = By.cssSelector("a[href='/product_details/" + productId + "']");
     

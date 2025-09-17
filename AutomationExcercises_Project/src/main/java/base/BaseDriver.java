@@ -1,6 +1,5 @@
 package base;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import org.openqa.selenium.WebDriver;
@@ -28,6 +27,7 @@ public class BaseDriver {
                 options.setExperimentalOption("prefs", prefs);
                 driver = new ChromeDriver(options);
                     break;
+                    
                 case "firefox":
                     driver = new FirefoxDriver();
                     break;

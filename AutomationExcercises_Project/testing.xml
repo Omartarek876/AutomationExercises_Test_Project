@@ -8,8 +8,9 @@
     </listeners>
 
     <test name="automationTests">
-        <classes>  
-                 <class name="tests.TC23_VerifyAddressDetailsInCheckoutPage"/> 
+        <classes>          
+                <class name="tests.TC25_VerifyScrollUpUsingArrowButtonAndScrollDownFunctionality"/> 
+                <class name="tests.TC26_VerifyScrollUpWIthoutArrowButtonAndScrollDownFunctionality"/> 
         </classes>
     </test>
 
@@ -41,7 +42,10 @@
                  <class name="tests.TC21_AddReviewOnProduct"/> 
                  <class name="tests.TC22_AddToCartFromRecommendedItems"/> 
                  <class name="tests.TC23_VerifyAddressDetailsInCheckoutPage"/> 
+                 <class name="tests.TC24_DownloadInvoiceAfterPurchaseOrder"/> 
+                 <class name="tests.TC25_VerifyScrollUpUsingArrowButtonAndScrollDownFunctionality"/> 
 
+                 <class name="tests.TC26_VerifyScrollUpWIthoutArrowButtonAndScrollDownFunctionality"/> 
 
 
 

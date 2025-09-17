@@ -53,9 +53,9 @@ public class TC16_LoginBeforeCheckout {
         System.out.println("you logged in successfully as " + validLoginUsers.LoginEmail);
         
         Homepage.clickProducts();
-        productsPage.hoverProductAndClick("1");
-        productsPage.hoverProductAndClick("2");
-        
+        String[] productIds = {"1", "2"};  // pick only these
+        productsPage.addProductsToCartByIds(productIds);
+
         productsPage.clickCart();
         checkoutPage.clickCheckoutButton();       
         checkoutPage.addCommentBeforeCheckout("this is a test");

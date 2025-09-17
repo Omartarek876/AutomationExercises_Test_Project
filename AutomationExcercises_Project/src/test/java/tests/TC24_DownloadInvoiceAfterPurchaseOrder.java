@@ -15,7 +15,7 @@ import utils.*;
  *
  * @author Omar Tarek
  */
-public class TC14_RegisterWhileCheckout {
+public class TC24_DownloadInvoiceAfterPurchaseOrder {
     
     Home_Page Homepage;
     Products_Page productsPage;
@@ -41,8 +41,9 @@ public class TC14_RegisterWhileCheckout {
     
     
     @Test(dataProvider = "usersData")
-    public void TC14_RegisterWhileCheckout(CreateAccountUsers UserTestData)
+    public void TC24_DownloadInvoiceAfterPurchaseOrder(CreateAccountUsers UserTestData)
     {   
+        
         BrowserUtils.navigateToURL("https://automationexercise.com/");
         assertTrue(Homepage.homePageheader().contains("Automation")
                 , "the home page is invisible");
@@ -76,13 +77,20 @@ public class TC14_RegisterWhileCheckout {
         assertEquals(BrowserUtils.GetCurrentLink() , "https://automationexercise.com/account_created");
         System.out.println("the account is created");
         accountCreated_Page.clickContinue();
+        assertTrue(Homepage.LoggedAsText().contains(UserTestData.SignUpName));
 
-            
- //       assertTrue(Homepage.LoggedAsText().contains("Logged in as " + UserTestData.SignUpName));
- //       System.out.println("you logged in successfully as " + UserTestData.SignUpName);
-        
         Homepage.clickCart();
         checkoutPage.clickCheckoutButton();       
+        
+        assertTrue(checkoutPage.getDeliveryAddress().contains(UserTestData.address1) 
+                , " the delivery address is not same address filled at the time registration of account");
+        System.out.println(" the delivery address is same address filled at the time registration of account");
+        
+        assertTrue(checkoutPage.getBillingAddress().contains(UserTestData.address1) 
+                , " the delivery address is not same address filled at the time registration of account");
+        System.out.println(" the delivery address is same address filled at the time registration of account");
+             
+        
         checkoutPage.addCommentBeforeCheckout("this is a test");
         checkoutPage.clickPlaceOrderButton();
         
@@ -91,16 +99,17 @@ public class TC14_RegisterWhileCheckout {
         
         assertTrue(checkoutPage.getSuccessPaymentMsg().contains("Congratulations!")  , "Your order has not been placed successfully!");
         System.out.println("Your order has been placed successfully!");
-        checkoutPage.clickContinueAfterSuccess();
+        checkoutPage.clickDownloadInvoiceButton();
         
-        
+   
+        checkoutPage.clickContinueAfterSuccess();             
         Homepage.DeleteAccount();
         assertEquals(BrowserUtils.GetCurrentLink() , "https://automationexercise.com/delete_account");
         System.out.println("the account is deleted");
         
         AccountDeleted_Page.clickContinue();
         assertTrue(Homepage.homePageheader().contains("Automation")
-                , "the home page is invisible");  
+                , "the home page is invisible");
                
  }     
     
@@ -122,19 +131,20 @@ public class TC14_RegisterWhileCheckout {
 
     @AfterClass
     public void tearDownClass() throws Exception {
-        base.BaseDriver.quitDriver();   
+      //  base.BaseDriver.quitDriver();   
     }
 
     @BeforeMethod
     public void setUpMethod() throws Exception {
-        System.out.println("TC14 - START");
+        System.out.println("TC24 - START");
     }
 
     @AfterMethod
     public void tearDownMethod() throws Exception {
-        System.out.println("TC14 - END");
+        System.out.println("TC24 - END");
     }
     
     
   
+    
 }

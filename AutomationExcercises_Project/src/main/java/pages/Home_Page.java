@@ -43,6 +43,7 @@ public class Home_Page {
     private By DeleteAccountLocator = By.cssSelector("a[href='/delete_account']");
     private By LogoutLocator = By.cssSelector("#header > div > div > div > div.col-sm-8 > div > ul > li:nth-child(4) > a");
     private By footerLocator = By.cssSelector("footer"); 
+    private By headerLocator = By.id("header");
     private By subscriptionHeaderLocator = By.className("single-widget");
     private By subscriptionEmailLocator = By.id("susbscribe_email");
     private By SubscriptionArrowLocator = By.id("subscribe");
@@ -51,7 +52,8 @@ public class Home_Page {
     private By recommendedItemsSection = By.xpath("//h2[normalize-space()='recommended items']");
     private By allSearchResultsLocator = By.cssSelector(".product-image-wrapper");
     private By continueButtonLocator = By.cssSelector("button.close-modal, #cartModal button[data-dismiss='modal']"); 
-
+    private By UpArrowLocator = By.cssSelector("#scrollUp");
+    private By H2TextLocator = By.cssSelector("#slider-carousel h2");
 
     public Home_Page(String Browser) throws IOException {
         this.browser = Browser;
@@ -67,6 +69,11 @@ public class Home_Page {
     
     public String homePageheader() {
         return ElementUtils.getText(HomePageHeaderLocator);
+    }
+    
+    public String homePageSecondHeader()
+    {
+        return ElementUtils.getText(H2TextLocator);
     }
     
     public void clickSignUp_Login() {
@@ -127,6 +134,15 @@ public class Home_Page {
     public void scrollToFooter ()
     {
         ActionsUtils.scrollToElement(footerLocator);
+    }
+    
+    public void scrollToHeader()
+    {
+        ActionsUtils.scrollToElement(headerLocator);
+    }
+    public void scrollToUpArrow()
+    {
+        ActionsUtils.scrollToElement(UpArrowLocator);
     }
     
     public String subscriptionHeader ()
@@ -328,5 +344,9 @@ public List<String> hoverAndAddMultipleRecommendedProducts(List<String> productI
 }
 
 
+    public void clickUpArrow ()
+    {
+        ElementUtils.click(UpArrowLocator);
+    }
 }
 

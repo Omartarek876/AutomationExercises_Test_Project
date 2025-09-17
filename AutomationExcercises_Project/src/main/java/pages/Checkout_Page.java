@@ -22,6 +22,7 @@ public class Checkout_Page {
     private By payAndConfirmBtn  = By.cssSelector("#submit");
 private By SuccessPaymentMsgLocator = By.cssSelector("#form > div > div > div > p");
 private By ContinueBtnLocator = By.cssSelector("#form > div > div > div > div > a");
+private By downloadInvoiceButtonLocator = By.cssSelector("#form > div > div > div > a");
 
     public void clickCheckoutButton()
     {
@@ -42,8 +43,12 @@ private By ContinueBtnLocator = By.cssSelector("#form > div > div > div > div > 
     {
         ElementUtils.click(placeOrderButtonLocator);
     }
-    // ------------------- Payment Section -------------------
     
+    
+    public void clickDownloadInvoiceButton ()
+    {
+        ElementUtils.click(downloadInvoiceButtonLocator);
+    }
 
     public void enterPaymentDetails(String name, String cardNumber, String cvc, String expMonth, String expYear) {
         KeyboardUtils.sendKeys(nameOnCardField, name);
