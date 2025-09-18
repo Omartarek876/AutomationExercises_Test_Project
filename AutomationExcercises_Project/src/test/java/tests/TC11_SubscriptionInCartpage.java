@@ -13,59 +13,67 @@ import utils.*;
 
 
 /**
+ * TC11 - Subscription In Cart Page Test Class
  *
- * @author Omar Tarek
+ * This test verifies that the subscription functionality
+ * works properly in the Cart page footer section.
+ *
+ * Follows the Page Object Model (POM) design pattern.
+ *
+ * Author: Omar Tarek
  */
 public class TC11_SubscriptionInCartpage {
     
-    
-    Home_Page Homepage;
-    Cart_Page CartPage;
+    private Home_Page Homepage;
+    private Cart_Page CartPage;
 
-    
     @Test
-    public void TC11_SubscriptionInCartpage()
-    {   
+    public void TC11_SubscriptionInCartpage() {   
+        // Step 1: Navigate to URL
         BrowserUtils.navigateToURL("https://automationexercise.com/");
-        assertTrue(Homepage.homePageheader().contains("Automation")
-                , "the home page is invisible");
-        System.out.println("the home page is visible");
-        
+        assertTrue(Homepage.homePageheader().contains("Automation"),
+                "The home page is invisible");
+        System.out.println("The home page is visible");
+
+        // Step 2: Navigate to Cart
         Homepage.clickCart();
+
+        // Step 3: Scroll to footer
         CartPage.scrollToFooter();
         System.out.println(CartPage.subscriptionHeader());
-        assertTrue(CartPage.subscriptionHeader().contains("SUBSCRIPTION") , "text 'SUBSCRIPTION' is invisible");
-        System.out.println("text 'SUBSCRIPTION' is visible");
-        
+        assertTrue(CartPage.subscriptionHeader().contains("SUBSCRIPTION"), 
+                "Text 'SUBSCRIPTION' is invisible");
+        System.out.println("Text 'SUBSCRIPTION' is visible");
+
+        // Step 4: Enter email and verify success message
         Homepage.sendSubscriptionEmail("ot482002@gmail.com");
         System.out.println(CartPage.getSuccessMessage());
-        assertTrue(CartPage.getSuccessMessage().contains("You have been successfully subscribed!") , "success message 'You have been successfully subscribed!' is Invisible");
-        System.out.println("success message 'You have been successfully subscribed!' is visible");
-
- }   
-    
+        assertTrue(CartPage.getSuccessMessage().contains("You have been successfully subscribed!"), 
+                "Success message 'You have been successfully subscribed!' is invisible");
+        System.out.println("Success message 'You have been successfully subscribed!' is visible");
+    }   
     
     @BeforeClass
-    public void setUpClass()  throws FileNotFoundException, IOException  {
-        Homepage = new Home_Page("chrome");
-        CartPage = new Cart_Page();
+    public void setUpClass() throws FileNotFoundException, IOException {
+        System.out.println("CLASS START");
     }
 
     @AfterClass
     public void tearDownClass() throws Exception {
-        base.BaseDriver.quitDriver();   
+        System.out.println("CLASS END");
+        
     }
 
     @BeforeMethod
-    public void setUpMethod() throws Exception {
+    public void setUpMethod() throws IOException {
         System.out.println("TC11 - START");
+        Homepage = new Home_Page("chrome");
+        CartPage = new Cart_Page();
     }
 
     @AfterMethod
-    public void tearDownMethod() throws Exception {
+    public void tearDownMethod() {
         System.out.println("TC11 - END");
+        base.BaseDriver.quitDriver();   
     }
-    
-    
-    
 }

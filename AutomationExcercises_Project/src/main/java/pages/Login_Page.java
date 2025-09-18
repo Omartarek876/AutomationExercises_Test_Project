@@ -1,73 +1,94 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+/**
+ * Login Page Object Class
+ *
+ * This class represents the Login Page in the Automation Exercise application.
+ * It contains all locators and actions related to the login functionality.
+ *
+ * Follows the Page Object Model (POM) design pattern.
+ *
+ * Author: Omar Tarek
  */
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import utils.ActionsUtils;
-import utils.ElementUtils;
-import utils.KeyboardUtils;
+import utils.*;
 
 /**
- *
- * @author Omar Tarek
+ * Page Object Model (POM) class for the Login Page.
+ * Encapsulates all locators and actions related to user login functionality.
  */
 public class Login_Page {
     
-    private String browser;
+    // ---------------- Variables ----------------
+    private String browser; // Placeholder for browser name if needed in the future
     
-    private By loginHeaderLocator = By.xpath("//*[@id='form']/div/div/div[1]/div/h2"); // "Login to your account" header
-    private By emailInputLocator = By.xpath("//input[@data-qa='login-email']"); // Email input field
-    private By passwordInputLocator = By.xpath("//input[@data-qa='login-password']"); // Password input field
-    private By loginButtonLocator = By.xpath("//button[@data-qa='login-button']"); // Login button
-    private By newUserSignupHeaderLocator = By.xpath("//h2[contains(text(),'New User Signup!')]"); // New User Signup header
-    private By errorMessageLocator = By.xpath("//p[contains(text(),'Your email or password is incorrect!')]"); // Login error message
-    private By forgotPasswordLinkLocator = By.xpath("//a[contains(text(),'Forgot Password?')]"); // Forgot Password link
-    private By InvalidLoginErrorMsgLocator = By.xpath("//*[@id=\"form\"]/div/div/div[1]/div/form/p");
-    private By cartLocator = By.xpath("//a[contains(text(),'Cart')]");
-
-
+    // ---------------- Locators ----------------
     
-    public void enterEmail(String email)
-    {
+    // Login Section
+    private By loginHeaderLocator          = By.cssSelector("#form h2"); // "Login to your account" header
+    private By emailInputLocator           = By.cssSelector("input[data-qa='login-email']"); // Email input field
+    private By passwordInputLocator        = By.cssSelector("input[data-qa='login-password']"); // Password input field
+    private By loginButtonLocator          = By.cssSelector("button[data-qa='login-button']"); // Login button
+    private By InvalidLoginErrorMsgLocator = By.cssSelector("#form form p"); // Invalid login error message
+    
+    // Signup Section
+    private By newUserSignupHeaderLocator  = By.xpath("//h2[contains(text(),'New User Signup!')]"); // "New User Signup!" header
+    
+    // Links
+    private By forgotPasswordLinkLocator   = By.linkText("Forgot Password?"); // Forgot Password link
+    private By cartLocator                 = By.linkText("Cart"); // Cart link
+    
+    
+    // ---------------- Methods ----------------
+    
+    /** Enter email in login form */
+    public void enterEmail(String email) {
         KeyboardUtils.sendKeys(emailInputLocator, email);
     }
 
-    public void enterPassword(String password)
-    {
+    /** Enter password in login form */
+    public void enterPassword(String password) {
         KeyboardUtils.sendKeys(passwordInputLocator, password);
     }
 
-    public void clickLoginButton()
-    {
+    /** Click on login button */
+    public void clickLoginButton() {
         ElementUtils.click(loginButtonLocator);
     }
 
-    public void login(String email, String password)
-    {
+    /**
+     * Perform login with given credentials
+     * @param email user email
+     * @param password user password
+     */
+    public void login(String email, String password) {
         enterEmail(email);
         enterPassword(password);
         clickLoginButton();
     }
 
+    /** Get "New User Signup!" header text */
     public String NewUserSignupHeader() {
-         return ElementUtils.getText(newUserSignupHeaderLocator);
+        return ElementUtils.getText(newUserSignupHeaderLocator);
     }
 
+    /** Get "Login to your account" header text */
     public String LoginHeader() {
-         return ElementUtils.getText(loginHeaderLocator);
+        return ElementUtils.getText(loginHeaderLocator);
     } 
     
-    public String InvalidLoginErrorMsg ()
-    {
+    /** Get invalid login error message */
+    public String InvalidLoginErrorMsg() {
         return ElementUtils.getText(InvalidLoginErrorMsgLocator);
     }
     
+    /** Navigate to Cart page */
     public void clickCart() {
         ElementUtils.click(cartLocator);
     }
 
-
+    /** Click on Forgot Password link */
+    public void clickForgotPassword() {
+        ElementUtils.click(forgotPasswordLinkLocator);
+    }
 }

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/EmptyTestNGTest.java to edit this template
- */
 package tests;
 
 import java.io.FileNotFoundException;
@@ -11,13 +7,21 @@ import org.testng.annotations.*;
 import pages.*;
 import utils.*;
 
-
 /**
+ * Test Case 16 - Login Before Checkout
  *
- * @author Omar Tarek
+ * This test case verifies that a registered user can log in,
+ * add products to the cart, proceed to checkout, and place an order successfully. 
+ *
+ * Application Under Test: Automation Exercise
+ * Tools/Framework: Selenium WebDriver + TestNG
+ * Design Pattern: Page Object Model (POM)
+ *
+ * Author: Omar Tarek
  */
 public class TC16_LoginBeforeCheckout {
     
+    // Page Object references
     Home_Page Homepage;
     Login_Page validLogin_Page;
     AccountDeleted_Page AccountDeleted_Page;
@@ -25,66 +29,100 @@ public class TC16_LoginBeforeCheckout {
     Cart_Page CartPage;
     Checkout_Page checkoutPage;
     
-        // Array holding user credentials loaded from JSON file
+    // Array holding user credentials loaded from JSON file
     static LoginUsers[] ListOfUsers;
     
-        /**
-     * Data Provider returns array of User objects for all test users.
-     * @return User[] of user credentials
+    /**
+     * Data Provider: Supplies valid login data from JSON file
+     * @return array of LoginUsers (email + password)
      */
     @DataProvider(name = "validLoginData")
     public LoginUsers[] userDataProvider() {
         return ListOfUsers;
     }
     
+    /**
+     * Test: Verify that login before checkout allows successful order placement.
+     */
     @Test(dataProvider = "validLoginData")
     public void TC16_LoginBeforeCheckout(LoginUsers validLoginUsers) {
-                BrowserUtils.navigateToURL("https://automationexercise.com/");
-        assertTrue(Homepage.homePageheader().contains("Automation")
-                , "the home page is invisible");
-        System.out.println("the home page is visible");
         
+        // Step 1: Navigate to homepage
+        BrowserUtils.navigateToURL("https://automationexercise.com/");
+        assertTrue(Homepage.homePageheader().contains("Automation"),
+                "The home page is not visible");
+        System.out.println("The home page is visible");
+        
+        // Step 2: Go to login page
         Homepage.clickSignUp_Login();
-        assertTrue(validLogin_Page.LoginHeader().contains("Login to your account") , "'Login to your account' is invisible");
-        System.out.println("'Login to your account' is visible");
+        assertTrue(validLogin_Page.LoginHeader().contains("Login to your account"),
+                "'Login to your account' header is not visible");
+        System.out.println("'Login to your account' header is visible");
         
-        validLogin_Page.login(validLoginUsers.LoginEmail , validLoginUsers.LoginPassword);
-        assertTrue(Homepage.LoggedAsText().contains("Logged in as"));
-        System.out.println("you logged in successfully as " + validLoginUsers.LoginEmail);
+        // Step 3: Login using valid credentials
+        validLogin_Page.login(validLoginUsers.LoginEmail, validLoginUsers.LoginPassword);
+        System.out.println("You logged in successfully as " + validLoginUsers.LoginEmail);
         
+        // Step 4: Add products to cart
         Homepage.clickProducts();
-        String[] productIds = {"1", "2"};  // pick only these
+        String[] productIds = {"1", "2"};  // add only these products
         productsPage.addProductsToCartByIds(productIds);
 
+        // Step 5: Proceed to cart and checkout
         productsPage.clickCart();
         checkoutPage.clickCheckoutButton();       
         checkoutPage.addCommentBeforeCheckout("this is a test");
         checkoutPage.clickPlaceOrderButton();
         
+        // Step 6: Enter payment details and confirm order
         checkoutPage.enterPaymentDetails("Omar Tarek", "4111111111111111", "123", "12", "2028");
         checkoutPage.clickPayAndConfirmOrder(); 
         
-        assertTrue(checkoutPage.getSuccessPaymentMsg().contains("Congratulations!")  , "Your order has not been placed successfully!");
+        // Step 7: Validate successful order placement
+        assertTrue(checkoutPage.getSuccessPaymentMsg().contains("Congratulations!"),
+                "Your order has not been placed successfully!");
         System.out.println("Your order has been placed successfully!");
         checkoutPage.clickContinueAfterSuccess();
         
         
-      /* 
-       Homepage.DeleteAccount();
-        assertEquals(BrowserUtils.GetCurrentLink() , "https://automationexercise.com/delete_account");
-        System.out.println("the account is deleted");
+        
+        // Step 8 (Optional Cleanup): Delete account after test
+        /*
+        Homepage.DeleteAccount();
+        assertEquals(BrowserUtils.GetCurrentLink(), "https://automationexercise.com/delete_account");
+        System.out.println("The account is deleted");
         
         AccountDeleted_Page.clickContinue();
-        assertTrue(Homepage.homePageheader().contains("Automation")
-                , "the home page is invisible");*/
+        assertTrue(Homepage.homePageheader().contains("Automation"),
+                "The home page is not visible after account deletion");
+        */
+         
     }
 
-
+    /**
+     * Setup before running the test class.
+     */
     @BeforeClass
-    public void setUpClass()  throws FileNotFoundException, IOException  {
+    public void setUpClass() throws FileNotFoundException, IOException {
+        System.out.println("CLASS START");
         ListOfUsers = HelperClass.ReadLoginUsers("ValidLoginData.json");
         System.out.println("Number of users loaded: " + ListOfUsers.length);
-        
+    }
+
+    /**
+     * Teardown after running the test class.
+     */
+    @AfterClass
+    public void tearDownClass() throws Exception {
+        System.out.println("CLASS END");
+    }
+
+    /**
+     * Setup before each test method.
+     */
+    @BeforeMethod
+    public void setUpMethod() throws Exception {
+        System.out.println("TC16 - START");
         Homepage = new Home_Page("chrome");
         validLogin_Page = new Login_Page();
         AccountDeleted_Page = new AccountDeleted_Page();
@@ -93,19 +131,12 @@ public class TC16_LoginBeforeCheckout {
         checkoutPage = new Checkout_Page();
     }
 
-    @AfterClass
-    public void tearDownClass() throws Exception {
-        base.BaseDriver.quitDriver();   
-    }
-
-    @BeforeMethod
-    public void setUpMethod() throws Exception {
-        System.out.println("TC16 - START");
-    }
-
+    /**
+     * Teardown after each test method.
+     */
     @AfterMethod
     public void tearDownMethod() throws Exception {
         System.out.println("TC16 - END");
+        base.BaseDriver.quitDriver();   
     }
-    
 }

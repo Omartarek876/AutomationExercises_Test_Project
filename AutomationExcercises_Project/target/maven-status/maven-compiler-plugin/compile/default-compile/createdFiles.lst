@@ -1,4 +1,5 @@
 utils\AlertUtils.class
+pages\AccountStatus_Page.class
 base\BaseDriver.class
 pages\Home_Page.class
 utils\ActionsUtils.class

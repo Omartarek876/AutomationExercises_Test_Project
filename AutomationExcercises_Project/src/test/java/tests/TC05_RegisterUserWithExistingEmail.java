@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/EmptyTestNGTest.java to edit this template
- */
 package tests;
 
 import java.io.FileNotFoundException;
@@ -12,68 +8,72 @@ import pages.*;
 import utils.*;
 
 /**
- *
- * @author Omar Tarek
+ * Test Case: TC05_RegisterUserWithExistingEmail
+ * 
+ * This test validates that a user cannot register with an email
+ * address that already exists in the system.
+ * 
+ * Author: Omar Tarek
  */
 public class TC05_RegisterUserWithExistingEmail {
    
-    Home_Page Homepage;
-    SignUp_Page SignUp_Page;
+    Home_Page homePage;
+    SignUp_Page signUpPage;
 
-    
     // Array holding user credentials loaded from JSON file
-    static LoginUsers[] ListOfUsers;
+    static LoginUsers[] listOfUsers;
     
-        /**
-     * Data Provider returns array of User objects for all test users.
-     * @return User[] of user credentials
+    /**
+     * Data Provider returns array of User objects with existing emails.
+     * @return LoginUsers[] of users with already registered emails
      */
-    @DataProvider(name = "InvalidLoginData")
+    @DataProvider(name = "existingEmailData")
     public LoginUsers[] userDataProvider() {
-        return ListOfUsers;
+        return listOfUsers;
     }
     
-    
-    @Test(dataProvider = "InvalidLoginData")
-    public void TC05_RegisterUserWithExistingEmail(LoginUsers InvalidLoginUsers)
-    {   
+    @Test(dataProvider = "existingEmailData")
+    public void TC05_RegisterUserWithExistingEmail(LoginUsers existingUser) {   
         BrowserUtils.navigateToURL("https://automationexercise.com/");
-        assertTrue(Homepage.homePageheader().contains("Automation")
-                , "the home page is invisible");
-        System.out.println("the home page is visible");
         
-        Homepage.clickSignUp_Login();
-        assertTrue(SignUp_Page.SignupHeader1().contains("New User Signup!") 
-                , "the 'New User Signup!' is invisible");
-        System.out.println("'new User SignUp!' is visible");
+        assertTrue(homePage.homePageheader().contains("Automation"),
+                "The home page is not visible");
+        System.out.println("The home page is visible");
         
-        SignUp_Page.signup("mahmoudahmed", InvalidLoginUsers.LoginEmail);
-        assertTrue(SignUp_Page.SignUpWithExistingEmail().contains("Email Address already exist!") , "the error msg is not appeared");
+        homePage.clickSignUp_Login();
+        assertTrue(signUpPage.SignupHeader1().contains("New User Signup!"),
+                "'New User Signup!' header is not visible");
+        System.out.println("'New User Signup!' is visible");
         
+        signUpPage.signup("mahmoudahmed", existingUser.LoginEmail);
+        assertTrue(signUpPage.SignUpWithExistingEmail().contains("Email Address already exist!"),
+                "Error message for existing email did not appear");
+        System.out.println("Error message 'Email Address already exist!' is displayed correctly");
     }
-    
     
     @BeforeClass
-    public void setUpClass()  throws FileNotFoundException, IOException  {
-        ListOfUsers = HelperClass.ReadLoginUsers("ValidLoginData.json");
-        System.out.println("Number of users loaded: " + ListOfUsers.length);
-        
-        Homepage = new Home_Page("chrome");
-        SignUp_Page = new SignUp_Page();
+    public void setUpClass() throws FileNotFoundException, IOException {
+        System.out.println("CLASS START");
+        listOfUsers = HelperClass.ReadLoginUsers("ValidLoginData.json");
+        System.out.println("Number of users loaded: " + listOfUsers.length);
     }
 
     @AfterClass
     public void tearDownClass() throws Exception {
+        System.out.println("CLASS END");
         base.BaseDriver.quitDriver();   
     }
 
     @BeforeMethod
     public void setUpMethod() throws Exception {
         System.out.println("TC05 - START");
+        homePage = new Home_Page("chrome");
+        signUpPage = new SignUp_Page();
     }
 
     @AfterMethod
     public void tearDownMethod() throws Exception {
+        base.BaseDriver.quitDriver();  
         System.out.println("TC05 - END");
     }
 }

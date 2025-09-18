@@ -1,85 +1,96 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+/**
+ * Contact Us Page Object Class
+ *
+ * This class represents the Contact Us Page in the Automation Exercise application.
+ * It encapsulates locators and actions related to the Contact Us functionality,
+ * including form submission, file upload, and navigation.
+ *
+ * Follows the Page Object Model (POM) design pattern.
+ *
+ * Author: Omar Tarek
  */
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import utils.ActionsUtils;
 import utils.AlertUtils;
 import utils.ElementUtils;
 import utils.KeyboardUtils;
 
-/**
- *
- * @author Omar Tarek
- */
 public class ContactUs_page {
     
-    private By FormNameLocator = By.xpath("//*[@id=\"contact-us-form\"]/div[1]/input");
-    private By FormEmailLocator = By.xpath("//*[@id=\"contact-us-form\"]/div[2]/input");
-    private By FormSubjectLocator = By.xpath("//*[@id=\"contact-us-form\"]/div[3]/input");
-    private By FormMsgLocator = By.xpath("//*[@id=\"message\"]");
-    private By HeaderLocator = By.xpath("//*[@id=\"contact-page\"]/div[2]/div[1]/div/h2");
-    private By SubmitButtonLocator = By.xpath("//*[@id=\"contact-us-form\"]/div[6]/input");
-    private By UploadFileLocator = By.xpath("//*[@id=\"contact-us-form\"]/div[5]/input");
-    private By SubmittedFormLocator = By.xpath("//*[@id=\"contact-page\"]/div[2]/div[1]/div/div[2]");
-    private By goHomeButtonLocator = By.cssSelector("a.btn.btn-success");
+    // -----------------------------
+    // Locators
+    // -----------------------------
+    private final By formNameLocator       = By.cssSelector("input[name='name']");              // Name input field
+    private final By formEmailLocator      = By.cssSelector("input[name='email']");             // Email input field
+    private final By formSubjectLocator    = By.cssSelector("input[name='subject']");           // Subject input field
+    private final By formMsgLocator        = By.cssSelector("textarea[name='message']");        // Message textarea
+    private final By submitButtonLocator   = By.cssSelector("#contact-us-form input[type='submit']"); // Submit button
+    private final By uploadFileLocator     = By.cssSelector("#contact-us-form input[type='file']");   // File upload input
+    private final By submittedFormLocator  = By.cssSelector("#contact-page .status.alert-success");   // Success message
+    private final By goHomeButtonLocator   = By.cssSelector("a.btn.btn-success");               // Home button
+    private final By headerLocator         = By.xpath("//h2[normalize-space()='Get In Touch']");// Page header
     
     
-    public void entername(String name)
-    {
-        KeyboardUtils.sendKeys(FormNameLocator, name);
-    }
-        
-    public void enterEmail(String email)
-    {
-        KeyboardUtils.sendKeys(FormEmailLocator, email);
-    }
+    // -----------------------------
+    // Page Actions
+    // -----------------------------
+    /** Enter text into the Name field */
+    public void EnterName(String name) { KeyboardUtils.sendKeys(formNameLocator, name); }
 
-    public void enterSubject(String subject)
-    {
-        KeyboardUtils.sendKeys(FormSubjectLocator, subject);
-    }
-    
-    public void enterMsg (String msg)
-    {
-        KeyboardUtils.sendKeys(FormMsgLocator, msg);
-    }
+    /** Enter text into the Email field */
+    public void EnterEmail(String email) { KeyboardUtils.sendKeys(formEmailLocator, email); }
 
-    public void clickSubmitButton()
-    {
-        ElementUtils.click(SubmitButtonLocator);
-    }
-    
-    public void uploadFile (String path)
-    {
-        ActionsUtils.uploadFile(UploadFileLocator, path);
-    }
+    /** Enter text into the Subject field */
+    public void EnterSubject(String subject) { KeyboardUtils.sendKeys(formSubjectLocator, subject); }
 
-    public void FillContactUsForm(String name , String email, String subject , String msg , String path)
-    {
-        entername(name);
-        enterEmail(email);
-        enterSubject(subject);
-        enterMsg(msg);
-        uploadFile(path);
-        clickSubmitButton();
+    /** Enter text into the Message field */
+    public void EnterMsg(String msg) { KeyboardUtils.sendKeys(formMsgLocator, msg); }
+
+    /** Click the Submit button */
+    public void ClickSubmitButton() { ElementUtils.click(submitButtonLocator); }
+
+    /** Upload a file into the form */
+    public void UploadFile(String path) { ActionsUtils.uploadFile(uploadFileLocator, path); }
+
+    
+    // -----------------------------
+    // Business Flows
+    // -----------------------------
+    /**
+     * Fill and submit the Contact Us form, then handle the confirmation alert.
+     * 
+     * @param name    User name
+     * @param email   User email
+     * @param subject Subject of the message
+     * @param msg     Body of the message
+     * @param path    File path for upload
+     */
+    public void FillContactUsForm(String name, String email, String subject, String msg, String path) {
+        EnterName(name);
+        EnterEmail(email);
+        EnterSubject(subject);
+        EnterMsg(msg);
+        UploadFile(path);
+        ClickSubmitButton();
         AlertUtils.acceptAlert();
     }
     
-    public String ContactUsHeader() {
-         return ElementUtils.getText(HeaderLocator);
-    } 
     
-    public String SubmittedFormMsg ()
-    {
-        return ElementUtils.getText(SubmittedFormLocator);
-    }
+    // -----------------------------
+    // Getters
+    // -----------------------------
+    /** Get the Contact Us page header text */
+    public String ContactUsHeader() { return ElementUtils.getText(headerLocator); }
+
+    /** Get the submitted form success message */
+    public String SubmittedFormMsg() { return ElementUtils.getText(submittedFormLocator); }
     
-    public void ClickHomeButton()
-    {
-        ElementUtils.click(goHomeButtonLocator);
-    }
+    
+    // -----------------------------
+    // Navigation
+    // -----------------------------
+    /** Click the Home button to navigate back to homepage */
+    public void ClickHomeButton() { ElementUtils.click(goHomeButtonLocator); }
 }

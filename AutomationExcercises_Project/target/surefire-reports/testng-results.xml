@@ -2,50 +2,50 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-17T21:45:24 EEST" name="AutomationExerciseTestSuite" finished-at="2025-09-17T21:45:54 EEST" duration-ms="29984">
+  <suite started-at="2025-09-18T05:23:03 EEST" name="AutomationExerciseTestSuite" finished-at="2025-09-18T05:23:16 EEST" duration-ms="12822">
     <groups>
     </groups>
-    <test started-at="2025-09-17T21:45:24 EEST" name="automationTests" finished-at="2025-09-17T21:45:54 EEST" duration-ms="29984">
+    <test started-at="2025-09-18T05:23:03 EEST" name="automationTests" finished-at="2025-09-18T05:23:16 EEST" duration-ms="12822">
       <class name="tests.TC26_VerifyScrollUpWIthoutArrowButtonAndScrollDownFunctionality">
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:tests.TC26_VerifyScrollUpWIthoutArrowButtonAndScrollDownFunctionality@74d1dc36]" started-at="2025-09-17T21:45:40 EEST" name="setUpClass" finished-at="2025-09-17T21:45:42 EEST" duration-ms="1124" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:tests.TC26_VerifyScrollUpWIthoutArrowButtonAndScrollDownFunctionality@74d1dc36]" started-at="2025-09-18T05:23:12 EEST" name="setUpClass" finished-at="2025-09-18T05:23:12 EEST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method is-config="true" signature="setUpMethod()[pri:0, instance:tests.TC26_VerifyScrollUpWIthoutArrowButtonAndScrollDownFunctionality@74d1dc36]" started-at="2025-09-17T21:45:42 EEST" name="setUpMethod" finished-at="2025-09-17T21:45:42 EEST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="setUpMethod()[pri:0, instance:tests.TC26_VerifyScrollUpWIthoutArrowButtonAndScrollDownFunctionality@74d1dc36]" started-at="2025-09-18T05:23:12 EEST" name="setUpMethod" finished-at="2025-09-18T05:23:13 EEST" duration-ms="940" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpMethod -->
-        <test-method signature="TC26_VerifyScrollUpWIthoutArrowButtonAndScrollDownFunctionality()[pri:0, instance:tests.TC26_VerifyScrollUpWIthoutArrowButtonAndScrollDownFunctionality@74d1dc36]" started-at="2025-09-17T21:45:42 EEST" name="TC26_VerifyScrollUpWIthoutArrowButtonAndScrollDownFunctionality" finished-at="2025-09-17T21:45:53 EEST" duration-ms="11886" status="PASS">
+        <test-method signature="TC26_VerifyScrollUpWIthoutArrowButtonAndScrollDownFunctionality()[pri:0, instance:tests.TC26_VerifyScrollUpWIthoutArrowButtonAndScrollDownFunctionality@74d1dc36]" started-at="2025-09-18T05:23:13 EEST" name="TC26_VerifyScrollUpWIthoutArrowButtonAndScrollDownFunctionality" finished-at="2025-09-18T05:23:16 EEST" duration-ms="3361" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC26_VerifyScrollUpWIthoutArrowButtonAndScrollDownFunctionality -->
-        <test-method is-config="true" signature="tearDownMethod()[pri:0, instance:tests.TC26_VerifyScrollUpWIthoutArrowButtonAndScrollDownFunctionality@74d1dc36]" started-at="2025-09-17T21:45:53 EEST" name="tearDownMethod" finished-at="2025-09-17T21:45:53 EEST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="tearDownMethod()[pri:0, instance:tests.TC26_VerifyScrollUpWIthoutArrowButtonAndScrollDownFunctionality@74d1dc36]" started-at="2025-09-18T05:23:16 EEST" name="tearDownMethod" finished-at="2025-09-18T05:23:16 EEST" duration-ms="169" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownMethod -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:tests.TC26_VerifyScrollUpWIthoutArrowButtonAndScrollDownFunctionality@74d1dc36]" started-at="2025-09-17T21:45:53 EEST" name="tearDownClass" finished-at="2025-09-17T21:45:54 EEST" duration-ms="328" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:tests.TC26_VerifyScrollUpWIthoutArrowButtonAndScrollDownFunctionality@74d1dc36]" started-at="2025-09-18T05:23:16 EEST" name="tearDownClass" finished-at="2025-09-18T05:23:16 EEST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
       </class> <!-- tests.TC26_VerifyScrollUpWIthoutArrowButtonAndScrollDownFunctionality -->
       <class name="tests.TC25_VerifyScrollUpUsingArrowButtonAndScrollDownFunctionality">
-        <test-method is-config="true" signature="setUpClass()[pri:0, instance:tests.TC25_VerifyScrollUpUsingArrowButtonAndScrollDownFunctionality@202b0582]" started-at="2025-09-17T21:45:24 EEST" name="setUpClass" finished-at="2025-09-17T21:45:25 EEST" duration-ms="1616" status="PASS">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:tests.TC25_VerifyScrollUpUsingArrowButtonAndScrollDownFunctionality@202b0582]" started-at="2025-09-18T05:23:03 EEST" name="setUpClass" finished-at="2025-09-18T05:23:03 EEST" duration-ms="13" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method is-config="true" signature="setUpMethod()[pri:0, instance:tests.TC25_VerifyScrollUpUsingArrowButtonAndScrollDownFunctionality@202b0582]" started-at="2025-09-17T21:45:25 EEST" name="setUpMethod" finished-at="2025-09-17T21:45:25 EEST" duration-ms="3" status="PASS">
+        <test-method is-config="true" signature="setUpMethod()[pri:0, instance:tests.TC25_VerifyScrollUpUsingArrowButtonAndScrollDownFunctionality@202b0582]" started-at="2025-09-18T05:23:03 EEST" name="setUpMethod" finished-at="2025-09-18T05:23:05 EEST" duration-ms="1319" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpMethod -->
-        <test-method signature="TC25_VerifyScrollUpUsingArrowButtonAndScrollDownFunctionality()[pri:0, instance:tests.TC25_VerifyScrollUpUsingArrowButtonAndScrollDownFunctionality@202b0582]" started-at="2025-09-17T21:45:26 EEST" name="TC25_VerifyScrollUpUsingArrowButtonAndScrollDownFunctionality" finished-at="2025-09-17T21:45:40 EEST" duration-ms="14423" status="PASS">
+        <test-method signature="TC25_VerifyScrollUpUsingArrowButtonAndScrollDownFunctionality()[pri:0, instance:tests.TC25_VerifyScrollUpUsingArrowButtonAndScrollDownFunctionality@202b0582]" started-at="2025-09-18T05:23:05 EEST" name="TC25_VerifyScrollUpUsingArrowButtonAndScrollDownFunctionality" finished-at="2025-09-18T05:23:11 EEST" duration-ms="6588" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC25_VerifyScrollUpUsingArrowButtonAndScrollDownFunctionality -->
-        <test-method is-config="true" signature="tearDownMethod()[pri:0, instance:tests.TC25_VerifyScrollUpUsingArrowButtonAndScrollDownFunctionality@202b0582]" started-at="2025-09-17T21:45:40 EEST" name="tearDownMethod" finished-at="2025-09-17T21:45:40 EEST" duration-ms="3" status="PASS">
+        <test-method is-config="true" signature="tearDownMethod()[pri:0, instance:tests.TC25_VerifyScrollUpUsingArrowButtonAndScrollDownFunctionality@202b0582]" started-at="2025-09-18T05:23:11 EEST" name="tearDownMethod" finished-at="2025-09-18T05:23:12 EEST" duration-ms="238" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownMethod -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:tests.TC25_VerifyScrollUpUsingArrowButtonAndScrollDownFunctionality@202b0582]" started-at="2025-09-17T21:45:40 EEST" name="tearDownClass" finished-at="2025-09-17T21:45:40 EEST" duration-ms="373" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:tests.TC25_VerifyScrollUpUsingArrowButtonAndScrollDownFunctionality@202b0582]" started-at="2025-09-18T05:23:12 EEST" name="tearDownClass" finished-at="2025-09-18T05:23:12 EEST" duration-ms="2" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

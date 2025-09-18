@@ -1,6 +1,12 @@
 /**
- *
- * @author Omar Tarek
+ * Home Page Object Class
+ * 
+ * This class represents the Home Page in the Automation Exercise application.
+ * It contains all locators and actions related to the homepage functionality.
+ * 
+ * Follows the Page Object Model (POM) design pattern.
+ * 
+ * Author: Omar Tarek
  */
 
 package pages;
@@ -13,340 +19,337 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-
 public class Home_Page {
     
+    // ------------------- Variables -------------------
     private String browser;
-    
-    private By signUpLoginLocator = By.xpath("//a[contains(text(),'Signup / Login')]");
-    private By productsLocator = By.xpath("//a[contains(text(),'Products')]");
-    private By cartLocator = By.xpath("//a[contains(text(),'Cart')]");
-    private By contactUsLocator = By.xpath("//a[contains(text(),'Contact us')]");
-    private By logoutLocator = By.xpath("//a[contains(text(),'Logout')]");
-    private By homeLogoLocator = By.xpath("//a[@class='logo pull-left']");
-    private By testcasesLocator = By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[5]/a");
-    private By testcasesPageHeaderLocator = By.xpath("//*[@id=\"form\"]/div/div[2]/h5/span");
-    private By HomePageHeaderLocator = By.xpath("//*[@id=\"slider-carousel\"]/div/div[1]/div[1]/h1");
-    private By FeaturedListLocator = By.xpath("/html/body/section[2]/div/div/div[2]/div[1]/div[2]");
-    private By featuredProductsLocator = By.cssSelector("div.features_items div.single-products");  
-    private By womenAddCategory = By.xpath("//*[@id=\"accordian\"]/div[1]/div[1]/h4/a/span/i");
-    private By menAddCategory   = By.xpath("//*[@id=\"accordian\"]/div[2]/div[1]/h4/a/span/i");
-    private By kidsAddCategory  = By.xpath("//*[@id=\"accordian\"]/div[3]/div[1]/h4/a/span/i");
-    private By dressLocator     = By.xpath("//*[@id=\"Women\"]/div/ul/li[1]/a");
-    private By topsLocator      = By.xpath("//*[@id=\"Women\"]/div/ul/li[2]/a");
-    private By sareeLocator     = By.xpath("//*[@id=\"Women\"]/div/ul/li[3]/a");
-    private By tshirtLocator    = By.xpath("//*[@id=\"Men\"]/div/ul/li[1]/a");
-    private By jeansLocator     = By.xpath("//*[@id=\"Men\"]/div/ul/li[2]/a");
-    private By kidsDressLocator = By.xpath("//*[@id=\"Kids\"]/div/ul/li[1]/a");
-    private By kidsTopsLocator  = By.xpath("//*[@id=\"Kids\"]/div/ul/li[2]/a");
-    private By loggedAsLocator = By.cssSelector("#header > div > div > div > div.col-sm-8 > div > ul > li:nth-child(10) > a > b");
-    private By DeleteAccountLocator = By.cssSelector("a[href='/delete_account']");
-    private By LogoutLocator = By.cssSelector("#header > div > div > div > div.col-sm-8 > div > ul > li:nth-child(4) > a");
-    private By footerLocator = By.cssSelector("footer"); 
-    private By headerLocator = By.id("header");
-    private By subscriptionHeaderLocator = By.className("single-widget");
-    private By subscriptionEmailLocator = By.id("susbscribe_email");
-    private By SubscriptionArrowLocator = By.id("subscribe");
-    private By successMessageLocator = By.cssSelector("div.alert-success");
-    private By recommendedProductNames = By.cssSelector("#recommended-item-carousel .productinfo p");
-    private By recommendedItemsSection = By.xpath("//h2[normalize-space()='recommended items']");
-    private By allSearchResultsLocator = By.cssSelector(".product-image-wrapper");
-    private By continueButtonLocator = By.cssSelector("button.close-modal, #cartModal button[data-dismiss='modal']"); 
-    private By UpArrowLocator = By.cssSelector("#scrollUp");
-    private By H2TextLocator = By.cssSelector("#slider-carousel h2");
 
+    // ------------------- Locators -------------------
+    // Navigation
+    private By signUpLoginLocator   = By.cssSelector("a[href='/login']");
+    private By productsLocator      = By.cssSelector("a[href='/products']");
+    private By cartLocator          = By.cssSelector("a[href='/view_cart']");
+    private By contactUsLocator     = By.cssSelector("a[href='/contact_us']");
+    private By logoutLocator        = By.cssSelector("a[href='/logout']");
+    private By homeLogoLocator      = By.cssSelector("a.logo.pull-left");
+    private By testcasesLocator     = By.cssSelector("a[href='/test_cases']");
+    
+    // Headers
+    private By testcasesPageHeaderLocator = By.cssSelector("#form h5 span");
+    private By HomePageHeaderLocator      = By.cssSelector("#slider-carousel h1");
+    private By H2TextLocator              = By.cssSelector("#slider-carousel h2");
+    
+    // Featured Products
+    private By FeaturedListLocator     = By.cssSelector("div.features_items");
+    private By featuredProductsLocator = By.cssSelector("div.features_items div.single-products");
+    
+    // Categories
+    private By womenAddCategory = By.cssSelector("#accordian > div:nth-child(1) h4 > a");
+    private By menAddCategory   = By.cssSelector("#accordian > div:nth-child(2) h4 > a");
+    private By kidsAddCategory  = By.cssSelector("#accordian > div:nth-child(3) h4 > a");
+
+    // Subcategories
+    private By dressLocator     = By.cssSelector("#Women a[href*='Dress']");
+    private By topsLocator      = By.cssSelector("#Women a[href*='Tops']");
+    private By sareeLocator     = By.cssSelector("#Women a[href*='Saree']");
+    private By tshirtLocator    = By.cssSelector("#Men a[href*='Tshirts']");
+    private By jeansLocator     = By.cssSelector("#Men a[href*='Jeans']");
+    private By kidsDressLocator = By.cssSelector("#Kids a[href*='Dress']");
+    private By kidsTopsLocator  = By.cssSelector("#Kids a[href*='Tops']");
+    
+    // Account
+    private By loggedAsLocator = By.cssSelector("ul.nav.navbar-nav li b");
+    private By DeleteAccountLocator  = By.cssSelector("a[href='/delete_account']");
+    private By LogoutLocator         = By.cssSelector("a[href='/logout']");
+    
+    // Page Layout
+    private By footerLocator = By.tagName("footer"); 
+    private By headerLocator = By.id("header");
+    private By UpArrowLocator = By.id("scrollUp");
+    
+    // Subscription
+    private By subscriptionHeaderLocator = By.cssSelector(".single-widget h2");
+    private By subscriptionEmailLocator  = By.id("susbscribe_email");
+    private By SubscriptionArrowLocator  = By.id("subscribe");
+    private By successMessageLocator     = By.cssSelector("div.alert-success");
+    
+    // Recommended Items
+    private By recommendedProductNames  = By.cssSelector("#recommended-item-carousel .productinfo p");
+    private By recommendedItemsSection = By.xpath("//h2[normalize-space()='recommended items']");
+    
+    // Search Results
+    private By allSearchResultsLocator = By.cssSelector(".product-image-wrapper");
+    private By continueButtonLocator   = By.cssSelector("button.close-modal, #cartModal button[data-dismiss='modal']"); 
+
+    
+    // ------------------- Constructors -------------------
+    
+    /** Constructor with browser setup */
     public Home_Page(String Browser) throws IOException {
         this.browser = Browser;
         BaseDriver.initializeDriver(browser);
     }   
     
+    /** Default constructor */
     public Home_Page (){}
     
-    // Method to return all featured product WebElements
+
+    // ------------------- Page Actions -------------------
+    
+    /** Get all featured products on the page */
     public List<WebElement> getFeaturedProductsList() {
         return ElementUtils.getElements(featuredProductsLocator);
     }
     
+    /** Get main homepage header text */
     public String homePageheader() {
         return ElementUtils.getText(HomePageHeaderLocator);
     }
     
-    public String homePageSecondHeader()
-    {
+    /** Get secondary homepage header text (h2) */
+    public String homePageSecondHeader() {
         return ElementUtils.getText(H2TextLocator);
     }
     
-    public void clickSignUp_Login() {
-        ElementUtils.click(signUpLoginLocator);
-    }
 
-    public void clickProducts() {
-        ElementUtils.click(productsLocator);
-    }
-
-    public void clickCart() {
-        ElementUtils.click(cartLocator);
-    }
-
-    public void clickContactUs() {
-        ElementUtils.click(contactUsLocator);
-    }
-
-    public void clickLogout() {
-        ElementUtils.click(logoutLocator);
-    }
-
-    public void clickHomeLogo() {
-        ElementUtils.click(homeLogoLocator);
-    }
+    // ------------------- Navigation -------------------
     
-    // Click a featured product by name (dynamic locator)
+    /** Navigate to Sign Up / Login page */
+    public void clickSignUp_Login() { ElementUtils.click(signUpLoginLocator); }
+    
+    /** Navigate to Products page */
+    public void clickProducts()     { ElementUtils.click(productsLocator); }
+    
+    /** Navigate to Cart page */
+    public void clickCart()         { ElementUtils.click(cartLocator); }
+    
+    /** Navigate to Contact Us page */
+    public void clickContactUs()    { ElementUtils.click(contactUsLocator); }
+    
+    /** Perform logout */
+    public void clickLogout()       { ElementUtils.click(logoutLocator); }
+    
+    /** Click on Home Logo */
+    public void clickHomeLogo()     { ElementUtils.click(homeLogoLocator); }
+    
+
+    // ------------------- Featured Products -------------------
+    
+    /** Click featured product dynamically by product name */
     public void clickFeaturedProduct(String productName) {
         By productLocator = By.xpath("//div[@class='features_items']//div[@class='single-products']" +
-                                 "[.//h2[contains(text(),'" + productName + "')]]");
-      ElementUtils.click(productLocator);
-     }
-    
-    public String LoggedAsText()
-    {
-        return ElementUtils.getText(loggedAsLocator);
+                                     "[.//h2[contains(text(),'" + productName + "')]]");
+        ElementUtils.click(productLocator);
     }
     
-    public void DeleteAccount()
-    {
-        ElementUtils.click(DeleteAccountLocator);
-    }
+
+    // ------------------- User Account -------------------
     
-    public void LogOut()
-    {
-        ElementUtils.click(LogoutLocator);
-    }
+    /** Get "Logged in as" text */
+    public String LoggedAsText() { return ElementUtils.getText(loggedAsLocator); }
     
-        
-    public void clickTestcases (){
-        ElementUtils.click(testcasesLocator);
-    }
+    /** Delete account */
+    public void DeleteAccount()  { ElementUtils.click(DeleteAccountLocator); }
     
-    public String testcasesPageHeader (){
-       return ElementUtils.getText(testcasesPageHeaderLocator);
-    }
+    /** Log out user */
+    public void LogOut()         { ElementUtils.click(LogoutLocator); }
     
-    public void scrollToFooter ()
-    {
-        ActionsUtils.scrollToElement(footerLocator);
-    }
+
+    // ------------------- Testcases -------------------
     
-    public void scrollToHeader()
-    {
-        ActionsUtils.scrollToElement(headerLocator);
-    }
-    public void scrollToUpArrow()
-    {
-        ActionsUtils.scrollToElement(UpArrowLocator);
-    }
+    /** Navigate to Test Cases page */
+    public void clickTestcases () { ElementUtils.click(testcasesLocator); }
     
-    public String subscriptionHeader ()
-    {
-        return ElementUtils.getText(subscriptionHeaderLocator);
-    }
+    /** Get Test Cases page header */
+    public String testcasesPageHeader () { return ElementUtils.getText(testcasesPageHeaderLocator); }
     
-    public void sendSubscriptionEmail(String email)
-    {
+
+    // ------------------- Scrolling -------------------
+    
+    /** Scroll to footer section */
+    public void scrollToFooter ()  { ActionsUtils.scrollToElement(footerLocator); }
+    
+    /** Scroll to header section */
+    public void scrollToHeader()   { ActionsUtils.scrollToElement(headerLocator); }
+    
+    /** Scroll to "Up Arrow" button */
+    public void scrollToUpArrow()  { ActionsUtils.scrollToElement(UpArrowLocator); }
+    
+
+    // ------------------- Subscription -------------------
+    
+    /** Get subscription section header */
+    public String subscriptionHeader () { return ElementUtils.getText(subscriptionHeaderLocator); }
+    
+    /** Enter email and click subscribe */
+    public void sendSubscriptionEmail(String email) {
         KeyboardUtils.sendKeys(subscriptionEmailLocator, email);
         ElementUtils.click(SubscriptionArrowLocator);
     }
     
-    public String getSuccessMessage()
-    {
-        return ElementUtils.getText(successMessageLocator);
-    }
- 
+    /** Get subscription success message */
+    public String getSuccessMessage() { return ElementUtils.getText(successMessageLocator); }
     
-// Click any category by name (Women, Men, Kids, etc.)
-public void clickCategory(String categoryName) {
-    By locator = By.xpath("//div[@class='left-sidebar']//a[contains(normalize-space(),'" + categoryName + "')]");
-    ActionsUtils.scrollToElement(locator);
-    ElementUtils.click(locator);
-}
 
-// Click any subcategory by name (Dress, Tshirts, Tops & Shirts, etc.)
-public void clickSubCategory(String categoryName , String subCategoryName) {
-    By locator = By.xpath("//div[@class='left-sidebar']//a[contains(normalize-space(),'" + subCategoryName + "')]");
-    clickCategory(categoryName);
-    ActionsUtils.scrollToElement(locator);
-    ElementUtils.click(locator);
-}
-
-// Get text of a category (for verification)
-public String getCategoryText(String categoryName) {
-    By locator = By.xpath("//div[@class='left-sidebar']//a[contains(normalize-space(),'" + categoryName + "')]");
-    return ElementUtils.getText(locator);
-}
-
-// Get text of a subcategory (for verification)
-public String getSubCategoryText(String subCategoryName) {
-    By locator = By.xpath("//div[@class='left-sidebar']//a[contains(normalize-space(),'" + subCategoryName + "')]");
-    return ElementUtils.getText(locator);
-}
-
-// Get text of a subcategory (for verification)
-public String getSubCategoryTitle(String subCategoryName) {
-    By titleLocator = By.xpath("//h2[@class='title text-center']");
-    return ElementUtils.getText(titleLocator);
-}
-
-public void clickBrand(String brandName) {
-    By brandLocator = By.xpath("//div[@class='brands-name']//a[contains(normalize-space(),'" + brandName + "')]");
-    ElementUtils.click(brandLocator);
-}
-
-
-public String getBrandPageTitle(String brandName) {
-   // clickBrand(brandName);
-    By brandTitleLocator = By.xpath("//h2[@class='title text-center']");
-    return ElementUtils.getText(brandTitleLocator);
-}
-
-
-public List<String> addedProductNames = new ArrayList<>();
-public List<String> addAllSearchResultsToCart() {
-    int totalProducts = ElementUtils.getElements(allSearchResultsLocator).size();
-
-    for (int i = 1; i <= totalProducts; i++) {
-        // Dynamic locators
-        By currentProductName = By.xpath("(//div[@class='productinfo text-center']/p)[" + i + "]");
-        By currentProductAddBtn = By.xpath("(//div[@class='productinfo text-center'])[" + i + "]//a[contains(@class,'add-to-cart')]");
-
-        try {
-            // Get product name
-            ActionsUtils.scrollToElement(currentProductName);
-            String productName = ElementUtils.getText(currentProductName);
-            addedProductNames.add(productName);
-            System.out.println("product number "+i+" : " + currentProductName);
-
-            // Add to cart
-            ActionsUtils.scrollToElement(currentProductAddBtn);
-            ElementUtils.click(currentProductAddBtn);
-
-            // Handle "Continue Shopping" popup
-            try {
-                ElementUtils.click(continueButtonLocator);
-            } catch (Exception ignorePopup) {
-                System.out.println("No popup appeared for product index " + i);
-            }
-
-            System.out.println("Added to cart: " + productName);
-
-        } catch (Exception e) {
-            System.out.println("Skipping product index " + i + " due to: "
-                    + e.getClass().getSimpleName() + " - " + e.getMessage());
-        }
+    // ------------------- Categories & Subcategories -------------------
+    
+    /** Click category by name */
+    public void clickCategory(String categoryName) {
+        By locator = By.xpath("//div[@class='left-sidebar']//a[contains(normalize-space(),'" + categoryName + "')]");
+        ActionsUtils.scrollToElement(locator);
+        ElementUtils.click(locator);
     }
     
-    return addedProductNames;
-}
+    /** Click subcategory by category name and subcategory name */
+    public void clickSubCategory(String categoryName , String subCategoryName) {
+        By locator = By.xpath("//div[@class='left-sidebar']//a[contains(normalize-space(),'" + subCategoryName + "')]");
+        clickCategory(categoryName);
+        ActionsUtils.scrollToElement(locator);
+        ElementUtils.click(locator);
+    }
+    
+    /** Get category text */
+    public String getCategoryText(String categoryName) {
+        By locator = By.xpath("//div[@class='left-sidebar']//a[contains(normalize-space(),'" + categoryName + "')]");
+        return ElementUtils.getText(locator);
+    }
+    
+    /** Get subcategory text */
+    public String getSubCategoryText(String subCategoryName) {
+        By locator = By.xpath("//div[@class='left-sidebar']//a[contains(normalize-space(),'" + subCategoryName + "')]");
+        return ElementUtils.getText(locator);
+    }
+    
+    /** Get subcategory title */
+    public String getSubCategoryTitle(String subCategoryName) {
+        By titleLocator = By.xpath("//h2[@class='title text-center']");
+        return ElementUtils.getText(titleLocator);
+    }
+    
 
-public List<String> addedDesiredProductNames = new ArrayList<>();
-public List<String> addProductsToCartByIds(String[] productIds) {
-    for (String productId : productIds) {
-        try {
-            // Dynamic locators
-            By currentProductName = By.xpath("//a[@data-product-id='" + productId + "']/ancestor::div[@class='productinfo text-center']//p");
-            By currentProductAddBtn = By.cssSelector("a[data-product-id='" + productId + "']");
+    // ------------------- Brands -------------------
+    
+    /** Click brand dynamically */
+    public void clickBrand(String brandName) {
+        By brandLocator = By.xpath("//div[@class='brands-name']//a[contains(normalize-space(),'" + brandName + "')]");
+        ElementUtils.click(brandLocator);
+    }
+    
+    /** Get brand page title */
+    public String getBrandPageTitle(String brandName) {
+        By brandTitleLocator = By.xpath("//h2[@class='title text-center']");
+        return ElementUtils.getText(brandTitleLocator);
+    }
+    
 
-            // Scroll and get product name
-            ActionsUtils.scrollToElement(currentProductName);
-            String productName = ElementUtils.getText(currentProductName);
-            addedDesiredProductNames.add(productName);
+    // ------------------- Cart Management -------------------
+    
+    /** Add all visible search results to cart */
+    public List<String> addedProductNames = new ArrayList<>();
+    public List<String> addAllSearchResultsToCart() {
+        int totalProducts = ElementUtils.getElements(allSearchResultsLocator).size();
 
-            // Add to cart
-            ActionsUtils.scrollToElement(currentProductAddBtn);
-            ElementUtils.click(currentProductAddBtn);
+        for (int i = 1; i <= totalProducts; i++) {
+            // Dynamic locators for product name & add-to-cart
+            By currentProductName   = By.xpath("(//div[@class='productinfo text-center']/p)[" + i + "]");
+            By currentProductAddBtn = By.xpath("(//div[@class='productinfo text-center'])[" + i + "]//a[contains(@class,'add-to-cart')]");
 
-            // Handle "Continue Shopping" popup
             try {
-                ElementUtils.click(continueButtonLocator);
-            } catch (Exception ignorePopup) {
-                System.out.println("No popup appeared for productId: " + productId);
+                ActionsUtils.scrollToElement(currentProductName);
+                String productName = ElementUtils.getText(currentProductName);
+                addedProductNames.add(productName);
+
+                // Add to cart
+                ActionsUtils.scrollToElement(currentProductAddBtn);
+                ElementUtils.click(currentProductAddBtn);
+
+                // Handle popup
+                try { ElementUtils.click(continueButtonLocator); }
+                catch (Exception ignorePopup) { }
+
+            } catch (Exception e) {
+                System.out.println("Skipping product index " + i + " due to: "
+                        + e.getClass().getSimpleName() + " - " + e.getMessage());
             }
-
-            System.out.println("Added to cart (by ID " + productId + "): " + productName);
-
-        } catch (Exception e) {
-            System.out.println("Skipping productId " + productId + " due to: "
-                    + e.getClass().getSimpleName() + " - " + e.getMessage());
         }
+        
+        return addedProductNames;
     }
 
-    return addedDesiredProductNames;
-}
+    /** Add products to cart by their IDs */
+    public List<String> addedDesiredProductNames = new ArrayList<>();
+    public List<String> addProductsToCartByIds(String[] productIds) {
+        for (String productId : productIds) {
+            try {
+                By currentProductName   = By.xpath("//a[@data-product-id='" + productId + "']/ancestor::div[@class='productinfo text-center']//p");
+                By currentProductAddBtn = By.cssSelector("a[data-product-id='" + productId + "']");
 
+                ActionsUtils.scrollToElement(currentProductName);
+                String productName = ElementUtils.getText(currentProductName);
+                addedDesiredProductNames.add(productName);
 
+                ActionsUtils.scrollToElement(currentProductAddBtn);
+                ElementUtils.click(currentProductAddBtn);
 
+                try { ElementUtils.click(continueButtonLocator); }
+                catch (Exception ignorePopup) { }
 
-// Scroll لآخر الصفحة
-public void scrollToBottom() {
-    ActionsUtils.scrollToElement(SubscriptionArrowLocator);// assuming عندك Utils بتعمل scroll
-}
+            } catch (Exception e) {
+                System.out.println("Skipping productId " + productId + " due to: "
+                        + e.getClass().getSimpleName() + " - " + e.getMessage());
+            }
+        }
+        return addedDesiredProductNames;
+    }
+    
 
-
-
-// Get Recommended Items section title
-public String getRecommendedItemsTitle() {
-    return ElementUtils.getText(recommendedItemsSection);
-}
-
+    // ------------------- Recommended Items -------------------
+    
+    /** Get recommended items section title */
+    public String getRecommendedItemsTitle() {
+        return ElementUtils.getText(recommendedItemsSection);
+    }
+    
+    /** Hover on product and add it to cart */
     public void hoverProductAndAddToCart(String productId) {
         By addElementToCartLocator = By.cssSelector("a[data-product-id='" + productId + "']");
-    //    By PostAddedElementToCartLocator = By.cssSelector("a[data-product-id='" + (productId+3) +"']");
-
-    //    ActionsUtils.scrollToElement(PostAddedElementToCartLocator);
         ActionsUtils.hoverAndClick(addElementToCartLocator);
         ElementUtils.click(continueButtonLocator);
     }
-   
 
-public List<String> addedRecommendedProductNames = new ArrayList<>();
-public List<String> hoverAndAddMultipleRecommendedProducts(List<String> productIds) {
-
-    for (String productId : productIds) {
-        try {
-            // Locator for Add to cart button
-            By recommendedAddToCartLocator = By.cssSelector("#recommended-item-carousel a[data-product-id='" + productId + "']");
-            
-            // Locator for the product name (based on productId position)
-            By productNameLocator = By.xpath("//div[@id='recommended-item-carousel']//a[@data-product-id='" + productId + "']/ancestor::div[@class='productinfo text-center']/p");
-
-            // Hover + Click Add
-            ActionsUtils.scrollToElement(recommendedAddToCartLocator);
-            ActionsUtils.hoverAndClick(recommendedAddToCartLocator);
-
-            // Close popup
+    /** Hover and add multiple recommended products by IDs */
+    public List<String> addedRecommendedProductNames = new ArrayList<>();
+    public List<String> hoverAndAddMultipleRecommendedProducts(List<String> productIds) {
+        for (String productId : productIds) {
             try {
-                ElementUtils.click(continueButtonLocator);
-            } catch (Exception ignorePopup) {
-                System.out.println("No popup for productId: " + productId);
+                By recommendedAddToCartLocator = By.cssSelector("#recommended-item-carousel a[data-product-id='" + productId + "']");
+                By productNameLocator = By.xpath("//div[@id='recommended-item-carousel']//a[@data-product-id='" + productId + "']/ancestor::div[@class='productinfo text-center']/p");
+
+                ActionsUtils.scrollToElement(recommendedAddToCartLocator);
+                ActionsUtils.hoverAndClick(recommendedAddToCartLocator);
+
+                try { ElementUtils.click(continueButtonLocator); }
+                catch (Exception ignorePopup) { }
+
+                String productName = ElementUtils.getText(productNameLocator);
+                addedRecommendedProductNames.add(productName);
+
+            } catch (Exception e) {
+                System.out.println("Skipping recommended productId " + productId + " due to: " 
+                                   + e.getClass().getSimpleName() + " - " + e.getMessage());
             }
-
-            // Get and store product name
-            String productName = ElementUtils.getText(productNameLocator);
-            addedRecommendedProductNames.add(productName);
-
-            System.out.println("Added Recommended Product: " + productName);
-
-        } catch (Exception e) {
-            System.out.println("Skipping recommended productId " + productId + " due to: " 
-                               + e.getClass().getSimpleName() + " - " + e.getMessage());
         }
+        return addedRecommendedProductNames;
     }
+    
 
-    return addedRecommendedProductNames;
-}
-
-
-    public void clickUpArrow ()
-    {
-        ElementUtils.click(UpArrowLocator);
+    // ------------------- Utility -------------------
+    
+    /** Scroll to bottom of page */
+    public void scrollToBottom() {
+        ActionsUtils.scrollToElement(SubscriptionArrowLocator);
     }
+    
+    /** Scroll up using arrow */
+    public void clickUpArrow () { ElementUtils.click(UpArrowLocator); }
 }
-
