@@ -1,3 +1,4 @@
+
 name: Automation Tests CI
 
 on:
@@ -6,7 +7,7 @@ on:
 
 jobs:
   test:
-    name: Execute Automation Tests
+    name: Run Automation Tests
     runs-on: ubuntu-latest
 
     steps:
@@ -14,22 +15,34 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set Up Java
-        uses: actions/setup-java@v5
+        uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: '21'
+          java-version: '17'
           cache: maven
 
-      - name: Run Automation Tests
-        run: mvn --batch-mode clean test
+      - name: Run All Tests
+        id: tests
+        continue-on-error: true
+        run: mvn --batch-mode clean test -Dheadless=true
+
+      - name: Generate Allure Report
+        if: always()
+        run: mvn --batch-mode allure:report
+        continue-on-error: true
 
       - name: Upload Test Reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: test-reports
+          name: automation-test-reports
           path: |
             target/surefire-reports/
             target/allure-results/
+            target/site/allure-maven-plugin/
           if-no-files-found: warn
           retention-days: 14
+
+      - name: Fail Workflow if Tests Failed
+        if: steps.tests.outcome == 'failure'
+        run: exit 1
