@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
+<project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
-                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>com.mycompany</groupId>
     <artifactId>AutomationExcercises_Project</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -13,9 +14,11 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>17</maven.compiler.release>
+        <headless>false</headless>
     </properties>
-    
+
     <dependencies>
+
         <!-- Selenium -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -45,31 +48,41 @@
             <artifactId>gson</artifactId>
             <version>2.11.0</version>
         </dependency>
+
     </dependencies>
 
     <build>
         <plugins>
-            <!-- Surefire plugin to run TestNG -->
+
+            <!-- Maven Surefire: execute TestNG tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.1.2</version>
+
                 <configuration>
                     <suiteXmlFiles>
                         <suiteXmlFile>testing.xml</suiteXmlFile>
                     </suiteXmlFiles>
+
                     <useFile>false</useFile>
+
                     <systemPropertyVariables>
-                        <allure.results.directory>target/allure-results</allure.results.directory>
+                        <allure.results.directory>
+                            ${project.build.directory}/allure-results
+                        </allure.results.directory>
+
+                        <headless>${headless}</headless>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
 
-            <!-- Allure Maven plugin -->
+            <!-- Allure: generate the HTML report during verify -->
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
                 <version>2.11.2</version>
+
                 <executions>
                     <execution>
                         <id>allure-report</id>
@@ -80,6 +93,8 @@
                     </execution>
                 </executions>
             </plugin>
+
         </plugins>
     </build>
+
 </project>
