@@ -103,7 +103,11 @@ public class Home_Page {
     
     /** Get main homepage header text */
     public String homePageheader() {
-        return ElementUtils.getText(HomePageHeaderLocator);
+        try {
+            return ElementUtils.getText(HomePageHeaderLocator);
+        } catch (Exception ignored) {
+            return ElementUtils.getText(H2TextLocator);
+        }
     }
     
     /** Get secondary homepage header text (h2) */
