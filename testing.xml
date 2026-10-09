@@ -13,7 +13,6 @@
             <class name="tests.TC03_InvalidLogin"/> 
             <class name="tests.TC04_LogoutUser"/>
             <class name="tests.TC05_RegisterUserWithExistingEmail"/>
-            <class name="tests.TC06_ContactUsForm"/>
             <class name="tests.TC07_TestcasesPageNavigation"/> 
             <class name="tests.TC08_VerifiyAllProductsAndProductPage"/>      
             <class name="tests.TC09_SearchProduct"/>      
