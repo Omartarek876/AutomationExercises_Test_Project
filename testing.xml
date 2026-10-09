@@ -9,7 +9,7 @@
 
     <test name="automationTests">
         <classes>
-            <class name="tests.TC01_RegisterUser"/>
+            <class name="tests.TC02_ValidLogin"/> 
 
         </classes>
     </test>
