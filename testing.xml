@@ -10,7 +10,14 @@
     <test name="automationTests">
         <classes>
             <class name="tests.TC02_ValidLogin"/> 
-
+            <class name="tests.TC03_InvalidLogin"/> 
+            <class name="tests.TC04_LogoutUser"/>
+            <class name="tests.TC05_RegisterUserWithExistingEmail"/>
+            <class name="tests.TC06_ContactUsForm"/>
+            <class name="tests.TC07_TestcasesPageNavigation"/> 
+            <class name="tests.TC08_VerifiyAllProductsAndProductPage"/>      
+            <class name="tests.TC09_SearchProduct"/>      
+            <class name="tests.TC10_SubscriptionInHomepage"/>      
         </classes>
     </test>
 
