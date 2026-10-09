@@ -25,6 +25,12 @@ public class BaseDriver {
 
                 options = new ChromeOptions();
                 options.setExperimentalOption("prefs", prefs);
+                if ("true".equalsIgnoreCase(System.getenv("CI"))) {
+                    options.addArguments("--headless=new");
+                    options.addArguments("--no-sandbox");
+                    options.addArguments("--disable-dev-shm-usage");
+                    options.addArguments("--window-size=1920,1080");
+                }
                 driver = new ChromeDriver(options);
                     break;
                     
@@ -34,7 +40,9 @@ public class BaseDriver {
                 default:
                     throw new IllegalArgumentException("Unsupported browser: " + browser);
             }
-            driver.manage().window().maximize();
+            if (!"true".equalsIgnoreCase(System.getenv("CI"))) {
+                driver.manage().window().maximize();
+            }
         }
         return driver;
     }
