@@ -146,7 +146,10 @@ public class Home_Page {
     // ------------------- User Account -------------------
     
     /** Get "Logged in as" text */
-    public String LoggedAsText() { return ElementUtils.getText(loggedAsLocator); }
+    public String LoggedAsText() {
+        WaitUtils.waitForTextToBePresent(loggedAsLocator, "Logged in as", 15);
+        return ElementUtils.getText(loggedAsLocator);
+    }
     
     /** Delete account */
     public void DeleteAccount()  { ElementUtils.click(DeleteAccountLocator); }
