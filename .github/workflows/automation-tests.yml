@@ -1,19 +1,25 @@
-
+```yaml
 name: Automation Tests CI
 
 on:
   push:
   pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   test:
-    name: Run Automation Tests
+    name: Run Selenium Automation Tests
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Checkout repository
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      # 2. Set up Java 17
       - name: Set Up Java
         uses: actions/setup-java@v4
         with:
@@ -21,28 +27,80 @@ jobs:
           java-version: '17'
           cache: maven
 
+      # 3. Run tests and continue if they fail
       - name: Run All Tests
         id: tests
         continue-on-error: true
         run: mvn --batch-mode clean test -Dheadless=true
 
+      # 4. Generate Allure HTML report
       - name: Generate Allure Report
         if: always()
-        run: mvn --batch-mode allure:report
         continue-on-error: true
+        run: mvn --batch-mode allure:report
 
-      - name: Upload Test Reports
+      # 5. Upload Allure HTML report
+      - name: Upload Allure HTML Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: automation-test-reports
-          path: |
-            target/surefire-reports/
-            target/allure-results/
-            target/site/allure-maven-plugin/
+          name: allure-html-report
+          path: target/site/allure-maven-plugin/
           if-no-files-found: warn
           retention-days: 14
 
+      # 6. Upload raw test results
+      - name: Upload Test Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: automation-test-results
+          path: |
+            target/allure-results/
+            target/surefire-reports/
+          if-no-files-found: warn
+          retention-days: 14
+
+      # 7. Publish the report even if tests failed
       - name: Fail Workflow if Tests Failed
         if: steps.tests.outcome == 'failure'
         run: exit 1
+
+  publish-report:
+    name: Publish Allure Report to GitHub Pages
+    needs: test
+    if: always() && needs.test.result != 'cancelled'
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      # 8. Download generated report
+      - name: Download Allure HTML Report
+        uses: actions/download-artifact@v4
+        with:
+          name: allure-html-report
+          path: ./allure-report
+
+      # 9. Configure GitHub Pages
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      # 10. Upload report for Pages deployment
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./allure-report
+
+      # 11. Deploy report
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+```
