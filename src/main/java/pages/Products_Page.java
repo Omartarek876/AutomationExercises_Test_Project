@@ -86,6 +86,7 @@ public class Products_Page {
         By productDetailsLocator = By.cssSelector("a[href='/product_details/" + productId + "']");
         ActionsUtils.scrollToElement(productDetailsLocator);
         ElementUtils.click(productDetailsLocator);
+        WaitUtils.waitForVisibility(productNameLocator, 10);
     }
 
     // ---------- Product Details ----------
