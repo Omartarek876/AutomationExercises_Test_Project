@@ -1,0 +1,35 @@
+name: Automation Tests CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    name: Execute Automation Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set Up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Run Automation Tests
+        run: mvn --batch-mode clean test
+
+      - name: Upload Test Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports
+          path: |
+            target/surefire-reports/
+            target/allure-results/
+          if-no-files-found: warn
+          retention-days: 14
